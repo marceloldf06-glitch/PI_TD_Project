@@ -15,6 +15,7 @@ public class Torreta : MonoBehaviour
     [SerializeField] private float Range = 5f;
     [SerializeField] private float velRotacao = 5f;
     [SerializeField] private float BalasPorSec = 1f;
+    [SerializeField] private int Dano = 1;
 
     private Transform Alvo = null;
     private float cooldown;
@@ -43,6 +44,7 @@ public class Torreta : MonoBehaviour
             if(cooldown >= 1f/BalasPorSec)
             {
                 Atirar(); 
+                cooldown = 0f;
             }
         }
 
@@ -51,7 +53,10 @@ public class Torreta : MonoBehaviour
 
     private void Atirar()
     {
-
+        GameObject balaobj = Instantiate(PrefabBala, PontoDeAcerto.position, Quaternion.identity);
+        Bala balacodigo = balaobj.GetComponent<Bala>();
+        balacodigo.MarcarAlvo(Alvo);
+        balacodigo.PegarValorDano(Dano);
     }
     private void AcharAlvo()
     {
