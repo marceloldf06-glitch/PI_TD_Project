@@ -140,4 +140,4 @@ MonoBehaviour:
   Range: 4
   velRotacao: 200
   BalasPorSec: 0.7
-  Dano: 1
+  Dano: 2

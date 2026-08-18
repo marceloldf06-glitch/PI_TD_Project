@@ -139,5 +139,5 @@ MonoBehaviour:
   PontoDeAcerto: {fileID: 7462858504082154829}
   Range: 4
   velRotacao: 200
-  BalasPorSec: 0.7
+  BalasPorSec: 1
   Dano: 1

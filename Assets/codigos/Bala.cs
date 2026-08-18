@@ -26,7 +26,7 @@ public class Bala : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!Alvo) return; 
+        if (!Alvo) { Destroy(gameObject); return; }
         Vector2 direcao = (Alvo.position - transform.position).normalized;
 
         rb.velocity = direcao * VelBala;

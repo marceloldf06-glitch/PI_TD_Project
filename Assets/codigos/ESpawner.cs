@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.Video;
 
 public class ESpawner : MonoBehaviour
 {
@@ -64,6 +65,7 @@ public class ESpawner : MonoBehaviour
     {
         int index = Random.Range(0, EPrefab.Length);
         GameObject EPrefabaSpawnar = EPrefab[index];
+        
         Instantiate(EPrefabaSpawnar, manager.main.SP.position, Quaternion.identity);
     }
     private IEnumerator comecarWave()
@@ -84,6 +86,7 @@ public class ESpawner : MonoBehaviour
     {
         return Mathf.RoundToInt(QEnimigos * Mathf.Pow(WaveAtual, escalaDeDificuldade));
     }
+    
     private float EporSec()
     {
         return Mathf.Clamp((EPorSegundo * Mathf.Pow(WaveAtual, escalaDeDificuldade)), 0, EporSegundoMax);

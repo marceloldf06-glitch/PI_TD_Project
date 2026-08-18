@@ -7,7 +7,14 @@ public class menu : MonoBehaviour
 {
     [Header("Referencias")]
     [SerializeField] TextMeshProUGUI moedasUI;
+    [SerializeField] Animator Anim;
 
+    private bool menuAberto = true;
+    public void AcinonarMenu()
+    {
+        menuAberto = !menuAberto;
+        Anim.SetBool("MenuAbre", menuAberto);   
+    }
     private void OnGUI()
     {
         moedasUI.text = manager.main.moedas.ToString();
@@ -25,8 +32,5 @@ public class menu : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
