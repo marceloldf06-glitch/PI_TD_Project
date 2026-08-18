@@ -28,7 +28,14 @@ public class Chao : MonoBehaviour
     private void OnMouseDown()
     {
         if (torre != null) return;
+
         Base torreAContruir = BuildManager.main.GetTorreSelecionada();
+
+        if(torreAContruir.custo > manager.main.moedas)
+        {
+            return;
+        }
+        manager.main.gastarDinheiro(torreAContruir.custo);
         torre = Instantiate(torreAContruir.prefab, transform.position, Quaternion.identity);
     }
 }
