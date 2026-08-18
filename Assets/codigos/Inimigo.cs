@@ -6,14 +6,17 @@ public class Inimigo : MonoBehaviour
 {
     [Header("Atributos")]
     [SerializeField] private int hp = 2;
-    
+    [SerializeField] private int valeQuanto = 50;
 
+    private bool isDestroyed = false;
     public void LevarDano (int Dano)
     {
         hp -= Dano;
-        if (hp <= 0)
+        if (hp <= 0 && !isDestroyed)
         {
             ESpawner.emEDestruido.Invoke();
+            manager.main.ganharDinheiro(valeQuanto);
+            isDestroyed = true;
             Destroy(gameObject);
         }
     }
