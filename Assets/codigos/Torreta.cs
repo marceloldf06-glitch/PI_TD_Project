@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.Tilemaps;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Torreta : MonoBehaviour
 {
@@ -9,20 +11,43 @@ public class Torreta : MonoBehaviour
     [SerializeField] private Transform pontoDeRotacaoDaTorreta;
     [SerializeField] private LayerMask Emascara;
     [SerializeField] private GameObject PrefabBala;
-    [SerializeField] private Transform PontoDeAcerto;
+    [SerializeField] private Transform PontaDaArma;
 
     [Header("Atributos")]
     [SerializeField] private float Range = 5f;
     [SerializeField] private float velRotacao = 5f;
     [SerializeField] private float BalasPorSec = 1f;
-    [SerializeField] private int Dano = 1;
+    [SerializeField] private float Dano = 1;
+    [SerializeField] private int precoUpgradeBase = 100;
+    [SerializeField] private int MaxPlacement = 1;
+
+    private float RangeBase;
+    private float DanoBase;
+    private float BalasPorSecBase;
+
+    private Button botaoUpgrade;
+    private GameObject upgradeUI;
+    private GameObject EscolherUI;
+
+    
+
 
     private Transform Alvo = null;
     private float cooldown;
+    private int lvl = 0;
+
 
     void Start()
     {
-        
+        RangeBase = Range;
+        DanoBase = Dano;
+        BalasPorSecBase = BalasPorSec;
+        Menus menuAUsar = MenuManager.main.GetMenuSelecionado();
+        upgradeUI = menuAUsar.upgradeUI;
+        EscolherUI = menuAUsar.CompraUI;
+        botaoUpgrade = menuAUsar.upgradeBTN;
+        AtivarUIUpgrade();
+        botaoUpgrade.onClick.AddListener(Upgrade);
     }
 
     // Update is called once per frame
@@ -53,11 +78,13 @@ public class Torreta : MonoBehaviour
 
     private void Atirar()
     {
-        GameObject balaobj = Instantiate(PrefabBala, PontoDeAcerto.position, Quaternion.identity);
+        GameObject balaobj = Instantiate(PrefabBala, PontaDaArma.position, Quaternion.identity);
         Bala balacodigo = balaobj.GetComponent<Bala>();
         balacodigo.MarcarAlvo(Alvo);
-        balacodigo.PegarValorDano(Dano);
+        balacodigo.PegarValorDano(Mathf.RoundToInt(Dano));
     }
+
+
     private void AcharAlvo()
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, Range, (Vector2)transform.position, 0f, Emascara);
@@ -77,9 +104,47 @@ public class Torreta : MonoBehaviour
         Alvo.position.x - transform.position.x) * Mathf.Rad2Deg - 90f ;
 
         Quaternion RotacaoAlvo = Quaternion.Euler(new Vector3(0f, 0f, angulo));
-        pontoDeRotacaoDaTorreta.rotation = 
-        Quaternion.RotateTowards(pontoDeRotacaoDaTorreta.rotation, 
-        RotacaoAlvo, velRotacao * Time.deltaTime);
+        pontoDeRotacaoDaTorreta.rotation = Quaternion.RotateTowards(pontoDeRotacaoDaTorreta.rotation, RotacaoAlvo, velRotacao * Time.deltaTime);
+    }
+
+    public void AtivarUIUpgrade()
+    {
+        upgradeUI.SetActive(true);
+        EscolherUI.SetActive(false);
+    }
+    public void DesativarUpgradeUI()
+    {
+        upgradeUI.SetActive(false);
+        EscolherUI.SetActive(true);
+    }
+   
+    public void Upgrade()
+    {
+        if (CalcularCusto() > manager.main.moedas) return;
+        //if (lvl == 3) return;
+        manager.main.gastarDinheiro(CalcularCusto());
+
+        BalasPorSec = CalcularBPS();
+        Range = CalcularRange();
+        Dano = CalcularDano();
+        lvl++;
+
+    }
+    private int CalcularCusto()
+    {
+        return Mathf.RoundToInt(precoUpgradeBase * Mathf.Pow(lvl, 0.8f));
+    }
+    private float CalcularBPS()
+    {
+        return (BalasPorSecBase * Mathf.Pow(lvl, 0.5f));
+    }
+    private float CalcularRange()
+    {
+        return (RangeBase * Mathf.Pow(lvl, 0.5f));
+    }
+    private float CalcularDano()
+    {
+        return (DanoBase * Mathf.Pow(lvl, 0.5f));
     }
     private void OnDrawGizmosSelected()
     {

@@ -9,7 +9,7 @@ public class BuildManager : MonoBehaviour
     [Header("Referencias")]
     [SerializeField] private Base[] torres;
 
-    private int torreselecionada = 0;
+    private int torreselecionada = -1;
 
     private void Awake()
     {
@@ -32,7 +32,7 @@ public class BuildManager : MonoBehaviour
         return torres[torreselecionada];
     }
 
-    public void  SetTorreSeceionada(int _torreSelecionada)
+    public void  SetTorreSelecionada(int _torreSelecionada)
     {
         torreselecionada = _torreSelecionada;
     }

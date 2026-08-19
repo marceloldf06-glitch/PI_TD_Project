@@ -136,8 +136,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   PrefabBala: {fileID: 6397345047072454464, guid: 1a83ef134a2468d4bbc98aff32d88443, type: 3}
-  PontoDeAcerto: {fileID: 7462858504082154829}
+  PontaDaArma: {fileID: 7462858504082154829}
+  upgradeUI: {fileID: 0}
+  botaoUpgrade: {fileID: 0}
+  EscolherUI: {fileID: 0}
   Range: 4
   velRotacao: 200
   BalasPorSec: 0.7
   Dano: 2
+  precoUpgradeBase: 100
+  MaxPlacement: 1

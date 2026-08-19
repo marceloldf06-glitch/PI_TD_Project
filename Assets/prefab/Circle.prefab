@@ -181,3 +181,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 5
   valeQuanto: 50
+  isDestroyed: 0
+  hpBase: 5
+  valeQuantoBase: 50

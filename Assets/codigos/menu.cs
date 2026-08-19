@@ -19,11 +19,7 @@ public class menu : MonoBehaviour
     {
         moedasUI.text = manager.main.moedas.ToString();
     }
-
-    public void setarTorre()
-    {
-        
-    }
+    
 
     // Start is called before the first frame update
     void Start()

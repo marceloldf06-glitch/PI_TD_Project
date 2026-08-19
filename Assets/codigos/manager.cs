@@ -10,9 +10,20 @@ public class manager : MonoBehaviour
 
     public Transform SP;
     public Transform[] caminho;
+    public Transform EP;
+
+    public int vida = 10;
 
     public int moedas;
 
+    private void Update()
+    {
+        if(vida <= 0 )
+        {
+            UnityEditor.EditorApplication.isPlaying = false;
+            Application.Quit();
+        }
+    }
     private void Awake()
     {
         main = this;

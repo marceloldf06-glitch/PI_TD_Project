@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7970731687872598659}
   - component: {fileID: 1910818874488866973}
   - component: {fileID: 5223911396173568332}
+  - component: {fileID: 3743619507379798028}
   m_Layer: 0
   m_Name: manager
   m_TagString: Untagged
@@ -49,6 +50,16 @@ MonoBehaviour:
   SP: {fileID: 0}
   caminho:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  EP: {fileID: 0}
+  vida: 0
+  moedas: 0
 --- !u!114 &1910818874488866973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,10 +74,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EPrefab:
   - {fileID: 7912679626672066902, guid: d802753d19c436d4e9366a51c8a3d635, type: 3}
-  QEnimigos: 1
-  EPorSegundo: 0.5
+  QEnimigos: 2
+  EPorSegundo: 1
   TEntreWaves: 2
-  escalaDeDificuldade: 0.75
+  escalaDeDificuldade: 1
   EporSegundoMax: 10
 --- !u!114 &5223911396173568332
 MonoBehaviour:
@@ -80,3 +91,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a12088e2d91899408233f7b33f76312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  torres:
+  - nome: Torre Basica
+    custo: 50
+    prefab: {fileID: 5148334801515781675, guid: ccf8ad2b6a25c974c8818d871803c703, type: 3}
+  - nome: Torre 2
+    custo: 100
+    prefab: {fileID: 5148334801515781675, guid: c890bf6dd61cda647a99559c6c76adab, type: 3}
+--- !u!114 &3743619507379798028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3284354409125325156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 690cfecd07ff52a4fb85993a004002cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menus:
+  - upgradeUI: {fileID: 0}
+    upgradeBTN: {fileID: 0}
+    CompraUI: {fileID: 0}
+  - upgradeUI: {fileID: 0}
+    upgradeBTN: {fileID: 0}
+    CompraUI: {fileID: 0}

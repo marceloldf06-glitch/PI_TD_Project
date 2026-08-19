@@ -66,7 +66,13 @@ public class ESpawner : MonoBehaviour
         int index = Random.Range(0, EPrefab.Length);
         GameObject EPrefabaSpawnar = EPrefab[index];
         
-        Instantiate(EPrefabaSpawnar, manager.main.SP.position, Quaternion.identity);
+        GameObject Espawnado = Instantiate(EPrefabaSpawnar, manager.main.SP.position, Quaternion.identity);
+        Inimigo inimigo = Espawnado.GetComponent<Inimigo>();
+
+        inimigo.SetHP(inimigo.GetHp() * Mathf.Pow(WaveAtual, escalaDeDificuldade));
+        inimigo.SetvaleQuanto(inimigo.GetvaleQuanto() * Mathf.Pow(WaveAtual, escalaDeDificuldade));
+
+        Debug.Log(inimigo.GetHp());
     }
     private IEnumerator comecarWave()
     {
@@ -74,6 +80,7 @@ public class ESpawner : MonoBehaviour
         Spawnando = true;
         EaSpawnar = EporWave();
         EPS = EporSec();
+        
     }
    private void AcabarWave()
     {

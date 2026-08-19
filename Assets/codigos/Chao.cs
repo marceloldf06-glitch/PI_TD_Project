@@ -7,8 +7,10 @@ public class Chao : MonoBehaviour
     [Header("Referencias")]
     [SerializeReference] private SpriteRenderer sr;
     [SerializeField] private Color cor;
+    [SerializeField] private Color corVenda;
 
-    private GameObject torre;
+    private GameObject torreObj;
+    public Torreta torreta;
     private Color corinicial;
     // Start is called before the first frame update
     void Start()
@@ -27,15 +29,23 @@ public class Chao : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (torre != null) return;
-
+        if (torreObj != null)
+        {
+            
+            return;
+        }
         Base torreAContruir = BuildManager.main.GetTorreSelecionada();
 
         if(torreAContruir.custo > manager.main.moedas)
         {
             return;
         }
-        manager.main.gastarDinheiro(torreAContruir.custo);
-        torre = Instantiate(torreAContruir.prefab, transform.position, Quaternion.identity);
+            
+            manager.main.gastarDinheiro(torreAContruir.custo);
+            torreObj = Instantiate(torreAContruir.prefab, transform.position, Quaternion.identity);
+            torreta = torreObj.GetComponent<Torreta>();
+            BuildManager.main.SetTorreSelecionada(-1);
+        
+        
     }
 }
