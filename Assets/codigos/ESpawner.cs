@@ -20,7 +20,7 @@ public class ESpawner : MonoBehaviour
     [Header("Eventos")]
     public static UnityEvent emEDestruido = new UnityEvent();
 
-    private int WaveAtual = 1;
+    public static int WaveAtual = 1;
     private float TDeisDoUltimoSpawn;
     private int Evivos;
     private int EaSpawnar;
@@ -77,6 +77,7 @@ public class ESpawner : MonoBehaviour
     private IEnumerator comecarWave()
     {
         yield return new WaitForSeconds(TEntreWaves);
+        WaveAtual++;
         Spawnando = true;
         EaSpawnar = EporWave();
         EPS = EporSec();
@@ -86,7 +87,6 @@ public class ESpawner : MonoBehaviour
     {
         Spawnando = false;
         TDeisDoUltimoSpawn = 0f;
-        WaveAtual++;
         StartCoroutine(comecarWave());
     }
     private int EporWave()
@@ -98,6 +98,7 @@ public class ESpawner : MonoBehaviour
     {
         return Mathf.Clamp((EPorSegundo * Mathf.Pow(WaveAtual, escalaDeDificuldade)), 0, EporSegundoMax);
     }
+    
     // Update is called once per frame
 
 }

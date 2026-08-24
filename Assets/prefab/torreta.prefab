@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 319454152465579316}
   - component: {fileID: 6936765674404273943}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7462858504082154829}
   - component: {fileID: 5983499574810256677}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: torreta
   m_TagString: Untagged
   m_Icon: {fileID: 0}

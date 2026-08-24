@@ -7,6 +7,8 @@ public class menu : MonoBehaviour
 {
     [Header("Referencias")]
     [SerializeField] TextMeshProUGUI moedasUI;
+    [SerializeField] TextMeshProUGUI vidaUI;
+    [SerializeField] TextMeshProUGUI waveUI;
     [SerializeField] Animator Anim;
 
     private bool menuAberto = true;
@@ -17,7 +19,10 @@ public class menu : MonoBehaviour
     }
     private void OnGUI()
     {
-        moedasUI.text = manager.main.moedas.ToString();
+       moedasUI.text = manager.main.moedas.ToString();
+       vidaUI.text = manager.main.vida.ToString();
+       waveUI.text = ESpawner.WaveAtual.ToString();
+        
     }
     
 

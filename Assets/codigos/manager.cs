@@ -34,6 +34,11 @@ public class manager : MonoBehaviour
         moedas = 100;
     }
 
+    public void levarDano(int dano)
+    {
+        vida -= dano;
+    }
+
     public void ganharDinheiro(int quantidade)
     {
         moedas += quantidade;

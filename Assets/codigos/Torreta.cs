@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Torreta : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class Torreta : MonoBehaviour
     [SerializeField] private float BalasPorSec = 1f;
     [SerializeField] private float Dano = 1;
     [SerializeField] private int precoUpgradeBase = 100;
-    [SerializeField] private int MaxPlacement = 1;
+    
 
     private float RangeBase;
     private float DanoBase;
@@ -28,13 +29,14 @@ public class Torreta : MonoBehaviour
     private Button botaoUpgrade;
     private GameObject upgradeUI;
     private GameObject EscolherUI;
+    private TextMeshProUGUI upgradeTXT;
 
     
 
 
     private Transform Alvo = null;
     private float cooldown;
-    private int lvl = 0;
+    private int lvl = 1;
 
 
     void Start()
@@ -44,10 +46,12 @@ public class Torreta : MonoBehaviour
         BalasPorSecBase = BalasPorSec;
         Menus menuAUsar = MenuManager.main.GetMenuSelecionado();
         upgradeUI = menuAUsar.upgradeUI;
+        upgradeTXT = menuAUsar.upgradeTXT;
         EscolherUI = menuAUsar.CompraUI;
         botaoUpgrade = menuAUsar.upgradeBTN;
         AtivarUIUpgrade();
         botaoUpgrade.onClick.AddListener(Upgrade);
+        upgradeTXT.SetText("Upgrade : " + precoUpgradeBase);
     }
 
     // Update is called once per frame
@@ -72,7 +76,7 @@ public class Torreta : MonoBehaviour
                 cooldown = 0f;
             }
         }
-
+        
 
     }
 
@@ -121,13 +125,13 @@ public class Torreta : MonoBehaviour
     public void Upgrade()
     {
         if (CalcularCusto() > manager.main.moedas) return;
-        //if (lvl == 3) return;
         manager.main.gastarDinheiro(CalcularCusto());
 
         BalasPorSec = CalcularBPS();
         Range = CalcularRange();
         Dano = CalcularDano();
         lvl++;
+        upgradeTXT.SetText("Upgrade : " + CalcularCusto());
 
     }
     private int CalcularCusto()

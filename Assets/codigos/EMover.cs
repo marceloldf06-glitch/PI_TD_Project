@@ -28,6 +28,7 @@ public class EMover : MonoBehaviour
             {
                 ESpawner.emEDestruido.Invoke();
                 Destroy(gameObject);
+                manager.main.levarDano(1);
                 return;
             }
             else
