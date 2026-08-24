@@ -20,7 +20,6 @@ public class manager : MonoBehaviour
     {
         if(vida <= 0 )
         {
-            UnityEditor.EditorApplication.isPlaying = false;
             Application.Quit();
         }
     }

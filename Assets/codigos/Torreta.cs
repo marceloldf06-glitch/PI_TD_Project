@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor.Tilemaps;
 
 public class Torreta : MonoBehaviour
 {
@@ -148,10 +149,5 @@ public class Torreta : MonoBehaviour
     private float CalcularDano()
     {
         return (DanoBase * Mathf.Pow(lvl, 0.5f));
-    }
-    private void OnDrawGizmosSelected()
-    {
-        Handles.color = Color.cyan;
-        Handles.DrawWireDisc(transform.position, transform.forward, Range);
     }
 }
