@@ -102,6 +102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sr: {fileID: 235902320538923276}
   cor: {r: 0.34456214, g: 0.8396226, b: 0.613015, a: 0.5019608}
+  corVenda: {r: 0, g: 0, b: 0, a: 0}
+  torreta: {fileID: 0}
 --- !u!61 &-1307765986570121379
 BoxCollider2D:
   m_ObjectHideFlags: 0

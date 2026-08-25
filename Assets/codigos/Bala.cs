@@ -29,9 +29,6 @@ public class Bala : MonoBehaviour
     {
 
         if (!Alvo) {
-
-            espera(5);
-            Destroy(gameObject);
             return; 
         }
         Vector2 direcao = (Alvo.position - transform.position).normalized;
@@ -41,7 +38,7 @@ public class Bala : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine( espera(5));
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -52,6 +49,7 @@ public class Bala : MonoBehaviour
     private IEnumerator espera(int _t)
     {
         yield return new WaitForSecondsRealtime(_t);
+        Destroy(gameObject);
     }
 
 }

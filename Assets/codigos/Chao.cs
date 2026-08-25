@@ -45,7 +45,7 @@ public class Chao : MonoBehaviour
             torreObj = Instantiate(torreAContruir.prefab, transform.position, Quaternion.identity);
             torreta = torreObj.GetComponent<Torreta>();
             BuildManager.main.SetTorreSelecionada(-1);
-        
+            torreta.transform.position = new Vector3(torreta.transform.position.x, torreta.transform.position.y, -1);
         
     }
 }
