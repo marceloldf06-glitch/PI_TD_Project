@@ -13,6 +13,7 @@ public class menu : MonoBehaviour
     [SerializeField] Animator Anim;
 
     private bool menuAberto = true;
+    private bool ispause;
     public void AcinonarMenu()
     {
         menuAberto = !menuAberto;
@@ -25,6 +26,21 @@ public class menu : MonoBehaviour
        waveUI.text = ESpawner.WaveAtual.ToString();
         
     }
+
+    public void pausar()
+    {
+        if (ispause)
+        {
+            Time.timeScale = 1;
+            ispause = !ispause;
+        }else if (!ispause)
+        {
+            Time.timeScale = 0;
+            ispause = !ispause;
+        }
+    }
+
+
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // loads current scene

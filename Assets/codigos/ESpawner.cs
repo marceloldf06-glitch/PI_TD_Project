@@ -20,7 +20,7 @@ public class ESpawner : MonoBehaviour
     [Header("Eventos")]
     public static UnityEvent emEDestruido = new UnityEvent();
 
-    public static int WaveAtual = 1;
+    public static int WaveAtual;
     private float TDeisDoUltimoSpawn;
     private int Evivos;
     private int EaSpawnar;
@@ -34,6 +34,7 @@ public class ESpawner : MonoBehaviour
 
     private void Start()
     {
+        WaveAtual = 0;
         StartCoroutine(comecarWave());
     }
     private void Update()
