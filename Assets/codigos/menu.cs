@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class menu : MonoBehaviour
 {
@@ -24,7 +25,10 @@ public class menu : MonoBehaviour
        waveUI.text = ESpawner.WaveAtual.ToString();
         
     }
-    
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // loads current scene
+    }
 
     // Start is called before the first frame update
     void Start()
