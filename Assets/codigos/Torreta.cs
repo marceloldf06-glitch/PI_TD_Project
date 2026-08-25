@@ -4,7 +4,6 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEditor.Tilemaps;
 
 public class Torreta : MonoBehaviour
 {
