@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bala : MonoBehaviour
@@ -26,7 +27,13 @@ public class Bala : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!Alvo) { Destroy(gameObject); return; }
+
+        if (!Alvo) {
+
+            espera(5);
+            Destroy(gameObject);
+            return; 
+        }
         Vector2 direcao = (Alvo.position - transform.position).normalized;
 
         rb.velocity = direcao * VelBala;
@@ -40,6 +47,11 @@ public class Bala : MonoBehaviour
     {
         collision.gameObject.GetComponent<Inimigo>().LevarDano(DanoDaBala);
         Destroy(gameObject);
+    }
+
+    private IEnumerator espera(int _t)
+    {
+        yield return new WaitForSecondsRealtime(_t);
     }
 
 }

@@ -69,7 +69,7 @@ public class ESpawner : MonoBehaviour
         GameObject Espawnado = Instantiate(EPrefabaSpawnar, manager.main.SP.position, Quaternion.identity);
         Inimigo inimigo = Espawnado.GetComponent<Inimigo>();
 
-        inimigo.SetHP(inimigo.GetHp() * Mathf.Pow(WaveAtual, escalaDeDificuldade));
+        inimigo.SetHP(inimigo.GetHp() + (1 * Mathf.Pow(WaveAtual, escalaDeDificuldade)));
         inimigo.SetvaleQuanto(inimigo.GetvaleQuanto() * Mathf.Pow(WaveAtual, escalaDeDificuldade));
 
         Debug.Log(inimigo.GetHp());

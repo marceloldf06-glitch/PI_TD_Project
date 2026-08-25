@@ -48,17 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SP: {fileID: 0}
-  caminho:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  caminho: []
   EP: {fileID: 0}
-  vida: 0
+  vida: 10
   moedas: 0
 --- !u!114 &1910818874488866973
 MonoBehaviour:
@@ -114,6 +106,8 @@ MonoBehaviour:
   - upgradeUI: {fileID: 0}
     upgradeBTN: {fileID: 0}
     CompraUI: {fileID: 0}
+    upgradeTXT: {fileID: 0}
   - upgradeUI: {fileID: 0}
     upgradeBTN: {fileID: 0}
     CompraUI: {fileID: 0}
+    upgradeTXT: {fileID: 0}
