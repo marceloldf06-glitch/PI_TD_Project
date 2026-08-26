@@ -135,7 +135,7 @@ public class Torreta : MonoBehaviour
     }
     private int CalcularCusto()
     {
-        return Mathf.RoundToInt(precoUpgradeBase * Mathf.Pow(lvl, 0.8f));
+        return Mathf.RoundToInt(precoUpgradeBase + 5 * Mathf.Pow(lvl, 2f));
     }
     private float CalcularBPS()
     {

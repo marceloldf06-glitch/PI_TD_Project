@@ -14,6 +14,7 @@ public class menu : MonoBehaviour
 
     private bool menuAberto = true;
     private bool ispause;
+    private float vel = 1;
     public void AcinonarMenu()
     {
         menuAberto = !menuAberto;
@@ -31,15 +32,27 @@ public class menu : MonoBehaviour
     {
         if (ispause)
         {
-            Time.timeScale = 1;
+            Time.timeScale = vel;
             ispause = !ispause;
         }else if (!ispause)
         {
-            Time.timeScale = 0;
+            Time.timeScale = 0f;
             ispause = !ispause;
         }
     }
-
+    public void mudarvel()
+    {
+        if (vel == 0 || vel == 1)
+        {
+            vel = 1.5f;
+        }else if (vel == 1.5f)
+        {
+            vel = 2f;
+        } else if (vel == 2f)
+        {
+            vel = 1f;
+        }
+    }
 
     public void RestartGame()
     {
@@ -49,9 +62,12 @@ public class menu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Time.timeScale = vel;
     }
 
     // Update is called once per frame
-    
+    private void FixedUpdate()
+    {
+        Time.timeScale = vel;
+    }
 }

@@ -29,7 +29,8 @@ public class Bala : MonoBehaviour
     {
 
         if (!Alvo) {
-            return; 
+            StartCoroutine(espera(5));
+            return;
         }
         Vector2 direcao = (Alvo.position - transform.position).normalized;
 
@@ -38,7 +39,7 @@ public class Bala : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine( espera(5));
+        
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
