@@ -48,7 +48,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SP: {fileID: 0}
-  caminho: []
+  caminho:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   EP: {fileID: 0}
   vida: 10
   moedas: 0

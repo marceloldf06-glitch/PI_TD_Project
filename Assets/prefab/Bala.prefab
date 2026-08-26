@@ -165,4 +165,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8513015170239870716}
-  VelBala: 5
+  VelBala: 10
