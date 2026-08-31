@@ -136,11 +136,10 @@ public class Torreta : MonoBehaviour
             return;
         }
         manager.main.gastarDinheiro(Mathf.RoundToInt( level(lvl).Preco));
-
+        lvl++;
         BalasPorSec = level(lvl).velAttk;
         Range = level(lvl).Range;
         Dano = level(lvl).Dano;
-        lvl++;
         if (lvl >= (Levels.Length - 1))
         {
             upgradeTXT.SetText("Max Level");
