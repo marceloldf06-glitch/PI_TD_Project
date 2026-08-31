@@ -73,7 +73,7 @@ public class ESpawner : MonoBehaviour
         inimigo.SetHP(inimigo.GetHp() + (1 * Mathf.Pow(WaveAtual, escalaDeDificuldade)));
         inimigo.SetvaleQuanto(inimigo.GetvaleQuanto() * Mathf.Pow(WaveAtual, escalaDeDificuldade));
 
-        Debug.Log(inimigo.GetHp());
+        
     }
     private IEnumerator comecarWave()
     {

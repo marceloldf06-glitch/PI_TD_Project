@@ -142,8 +142,12 @@ MonoBehaviour:
     Dano: 1
     Range: 3
     Preco: 50
+    critChance: 100
+    critDMG: 5
   - velAttk: 2
     Dano: 6
     Range: 7
     Preco: 100
+    critChance: 0
+    critDMG: 0
   velRotacao: 200

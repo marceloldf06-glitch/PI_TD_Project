@@ -20,7 +20,7 @@ public class Torreta : MonoBehaviour
 
 
 
-
+    
 
 
     private float BalasPorSec;
@@ -91,7 +91,17 @@ public class Torreta : MonoBehaviour
         GameObject balaobj = Instantiate(PrefabBala, PontaDaArma.position, Quaternion.identity);
         Bala balacodigo = balaobj.GetComponent<Bala>();
         balacodigo.MarcarAlvo(Alvo);
-        balacodigo.PegarValorDano(Mathf.RoundToInt(Dano));
+        int crit = Random.Range(0, 101);
+        if (crit <= level(lvl).critChance)
+        {
+            balacodigo.PegarValorDano(Mathf.RoundToInt((Dano * level(lvl).critDMG)));
+            Debug.Log(level(lvl).critDMG);
+        }
+        else
+        {
+            balacodigo.PegarValorDano(Mathf.RoundToInt(Dano));
+        }
+            
     }
 
 
