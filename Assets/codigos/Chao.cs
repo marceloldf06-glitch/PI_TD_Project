@@ -29,7 +29,8 @@ public class Chao : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (torreObj != null)
+        int ts = BuildManager.main.GetTorre();
+        if (torreObj != null || ts == -1)
         {
             
             return;

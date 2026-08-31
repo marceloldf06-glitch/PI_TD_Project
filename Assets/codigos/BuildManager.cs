@@ -31,7 +31,10 @@ public class BuildManager : MonoBehaviour
     {
         return torres[torreselecionada];
     }
-
+    public int GetTorre()
+    {
+        return torreselecionada;
+    }
     public void  SetTorreSelecionada(int _torreSelecionada)
     {
         torreselecionada = _torreSelecionada;

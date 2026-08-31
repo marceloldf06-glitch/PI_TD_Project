@@ -137,8 +137,13 @@ MonoBehaviour:
     m_Bits: 64
   PrefabBala: {fileID: 6397345047072454464, guid: 1a83ef134a2468d4bbc98aff32d88443, type: 3}
   PontaDaArma: {fileID: 319454152465579316}
-  Range: 4
+  Levels:
+  - velAttk: 1
+    Dano: 1
+    Range: 3
+    Preco: 50
+  - velAttk: 2
+    Dano: 6
+    Range: 7
+    Preco: 100
   velRotacao: 200
-  BalasPorSec: 1
-  Dano: 1
-  precoUpgradeBase: 50

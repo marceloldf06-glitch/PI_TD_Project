@@ -14,35 +14,42 @@ public class Torreta : MonoBehaviour
     [SerializeField] private Transform PontaDaArma;
 
     [Header("Atributos")]
-    [SerializeField] private float Range = 5f;
-    [SerializeField] private float velRotacao = 5f;
-    [SerializeField] private float BalasPorSec = 1f;
-    [SerializeField] private float Dano = 1;
-    [SerializeField] private int precoUpgradeBase = 100;
+    [SerializeField] private TorretaStatus[] Levels;
     
+    [SerializeField] private float velRotacao = 5f;
 
-    private float RangeBase;
-    private float DanoBase;
-    private float BalasPorSecBase;
+
+
+
+
+
+    private float BalasPorSec;
+    private float Dano;
+    private int precoUpgradeBase;
+    private float Range;
 
     private Button botaoUpgrade;
     private GameObject upgradeUI;
     private GameObject EscolherUI;
     private TextMeshProUGUI upgradeTXT;
 
-    
+
 
 
     private Transform Alvo = null;
     private float cooldown;
-    private int lvl = 1;
+    private int lvl = 0;
 
+    private TorretaStatus level(int lvl)
+    {
+        return Levels[lvl];
+    }
 
     void Start()
     {
-        RangeBase = Range;
-        DanoBase = Dano;
-        BalasPorSecBase = BalasPorSec;
+        BalasPorSec = level(lvl).velAttk;
+        Range = level(lvl).Range;
+        Dano = level(lvl).Dano;
         Menus menuAUsar = MenuManager.main.GetMenuSelecionado();
         upgradeUI = menuAUsar.upgradeUI;
         upgradeTXT = menuAUsar.upgradeTXT;
@@ -50,7 +57,7 @@ public class Torreta : MonoBehaviour
         botaoUpgrade = menuAUsar.upgradeBTN;
         AtivarUIUpgrade();
         botaoUpgrade.onClick.AddListener(Upgrade);
-        upgradeTXT.SetText("Upgrade : " + precoUpgradeBase);
+        upgradeTXT.SetText("Upgrade : " + level(lvl).Preco);
     }
 
     // Update is called once per frame
@@ -123,30 +130,24 @@ public class Torreta : MonoBehaviour
    
     public void Upgrade()
     {
-        if (CalcularCusto() > manager.main.moedas) return;
-        manager.main.gastarDinheiro(CalcularCusto());
+        if (level(lvl).Preco > manager.main.moedas) return;
+        if (lvl >= (Levels.Length -1))
+        {
+            return;
+        }
+        manager.main.gastarDinheiro(Mathf.RoundToInt( level(lvl).Preco));
 
-        BalasPorSec = CalcularBPS();
-        Range = CalcularRange();
-        Dano = CalcularDano();
+        BalasPorSec = level(lvl).velAttk;
+        Range = level(lvl).Range;
+        Dano = level(lvl).Dano;
         lvl++;
-        upgradeTXT.SetText("Upgrade : " + CalcularCusto());
-
-    }
-    private int CalcularCusto()
-    {
-        return Mathf.RoundToInt(precoUpgradeBase + 5 * Mathf.Pow(lvl, 2f));
-    }
-    private float CalcularBPS()
-    {
-        return (BalasPorSecBase * Mathf.Pow(lvl, 0.5f));
-    }
-    private float CalcularRange()
-    {
-        return (RangeBase * Mathf.Pow(lvl, 0.5f));
-    }
-    private float CalcularDano()
-    {
-        return (DanoBase * Mathf.Pow(lvl, 0.5f));
+        if (lvl >= (Levels.Length - 1))
+        {
+            upgradeTXT.SetText("Max Level");
+        }
+        else
+        {
+            upgradeTXT.SetText("Upgrade : " + level(lvl).Preco);
+        }
     }
 }
