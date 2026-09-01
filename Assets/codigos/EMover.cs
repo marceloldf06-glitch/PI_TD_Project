@@ -38,6 +38,10 @@ public class EMover : MonoBehaviour
             }
         
     }
+    public void Slow(int _slow)
+    {
+        velocidade -= ((velocidade / 100) * _slow);
+    }
     private void FixedUpdate()
     {
        Vector2 direcao = (alvo.position - transform.position).normalized;

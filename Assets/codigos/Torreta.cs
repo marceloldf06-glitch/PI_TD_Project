@@ -4,13 +4,16 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Globalization;
 
 public class Torreta : MonoBehaviour
 {
     [Header("Referencias")]
     [SerializeField] private Transform pontoDeRotacaoDaTorreta;
     [SerializeField] private LayerMask Emascara;
+    [SerializeField] private LayerMask Bmascara;
     [SerializeField] private GameObject PrefabBala;
+    [SerializeField] private GameObject PrefabBalabff;
     [SerializeField] private Transform PontaDaArma;
 
     [Header("Atributos")]
@@ -37,6 +40,7 @@ public class Torreta : MonoBehaviour
 
 
     private Transform Alvo = null;
+    private Transform AlvoB = null;
     private float cooldown;
     private int lvl = 0;
 
@@ -81,17 +85,41 @@ public class Torreta : MonoBehaviour
                 Atirar(); 
                 cooldown = 0f;
             }
+            if (level(lvl).buff > 0)
+            {
+                if (cooldown >= 1f)
+                {
+                AcharAlvoBuff();
+                Buff();
+                }
+                
+            }
+            
         }
-        
-
     }
-
+    public void LevarBuff(int _buff)
+    {
+        switch (_buff)
+        {
+            case 1:
+                Dano += ((Dano / 100) * 15);
+                break;
+            case 2:
+                BalasPorSec = 1000;
+                break;
+            case 3:
+                Range += ((Range / 100) * 15);
+                break;
+                
+        }
+        StartCoroutine(tirabff(3));
+    }
     private void Atirar()
     {
         GameObject balaobj = Instantiate(PrefabBala, PontaDaArma.position, Quaternion.identity);
         Bala balacodigo = balaobj.GetComponent<Bala>();
         balacodigo.MarcarAlvo(Alvo);
-        int crit = Random.Range(0, 101);
+        int crit = Random.Range(1, 100);
         if (crit <= level(lvl).critChance)
         {
             balacodigo.PegarValorDano(Mathf.RoundToInt((Dano * level(lvl).critDMG)));
@@ -101,10 +129,38 @@ public class Torreta : MonoBehaviour
         {
             balacodigo.PegarValorDano(Mathf.RoundToInt(Dano));
         }
+        balacodigo.pegarPierce(level(lvl).pierce);
+        balacodigo.pegarSlow(level(lvl).slow);
+
+
+        if (level(lvl).dotDur > 0)
+        {
+            float tid = level(lvl).dotDMG / level(lvl).dotDur;
             
+        }
+
+
+        if (level(lvl).ricochete > 0)
+        {
+
+        }
+        
+            
+        
+        if (level(lvl).knockback > 0)
+        {
+            
+
+        }
+
     }
 
+    private void Buff()
+    {
+        
+        GameObject balaobjbff = Instantiate(PrefabBalabff, AlvoB.position, Quaternion.identity);       
 
+    }
     private void AcharAlvo()
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, Range, (Vector2)transform.position, 0f, Emascara);
@@ -114,6 +170,19 @@ public class Torreta : MonoBehaviour
             Alvo = hits[0].transform;
         }
     }
+
+    private void AcharAlvoBuff()
+    {
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, 1000, (Vector2)transform.position, 0f, Bmascara);
+
+        if (hits.Length > 0)
+        {
+            AlvoB = hits[Random.Range(0, hits.Length)].transform;
+        }
+    }
+
+
+
     private bool ChecarAlvoEmRange()
     {
         return Vector2.Distance(Alvo.position, transform.position) <= Range;
@@ -158,5 +227,12 @@ public class Torreta : MonoBehaviour
         {
             upgradeTXT.SetText("Upgrade : " + level(lvl).Preco);
         }
+    }
+    private IEnumerator tirabff(int _sec)
+    {
+        yield return new WaitForSecondsRealtime(_sec);
+        BalasPorSec = level(lvl).velAttk;
+        Range = level(lvl).Range;
+        Dano = level(lvl).Dano;
     }
 }

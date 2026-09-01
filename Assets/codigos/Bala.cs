@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Bala : MonoBehaviour
 {
@@ -11,7 +12,11 @@ public class Bala : MonoBehaviour
 
     [Header("Atributos")]
     [SerializeField] private float VelBala = 5f;
+
     private int DanoDaBala;
+    private int pierce = 0;
+    private int slow = 0;
+    private int i = 0;
 
     private Transform Alvo;
 
@@ -19,6 +24,16 @@ public class Bala : MonoBehaviour
     {
         DanoDaBala = _dano;
     }
+
+    public void pegarPierce(int _pierce)
+    {
+        pierce = _pierce;
+    }
+    public void pegarSlow(int _slow)
+    {
+        slow = _slow;
+    }
+
     public void MarcarAlvo(Transform _alvo)
     {
         Alvo = _alvo;
@@ -43,8 +58,16 @@ public class Bala : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
+        if (i == pierce) {
+            Destroy(gameObject);
+        }
+        else 
+        {
+            i++;
+        }
         collision.gameObject.GetComponent<Inimigo>().LevarDano(DanoDaBala);
-        Destroy(gameObject);
+        collision.gameObject.GetComponent<EMover>().Slow(slow);
     }
 
     private IEnumerator espera(int _t)
@@ -52,5 +75,4 @@ public class Bala : MonoBehaviour
         yield return new WaitForSecondsRealtime(_t);
         Destroy(gameObject);
     }
-
 }
