@@ -15,7 +15,7 @@ public class BalaBuff : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        collision.gameObject.GetComponent<Torreta>().LevarBuff(buff);
+        collision.gameObject.GetComponent<Torreta>().LevarBuff(3);
          Destroy(gameObject);
     }
 }

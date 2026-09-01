@@ -13,7 +13,6 @@ public class Torreta : MonoBehaviour
     [SerializeField] private LayerMask Emascara;
     [SerializeField] private LayerMask Bmascara;
     [SerializeField] private GameObject PrefabBala;
-    [SerializeField] private GameObject PrefabBalabff;
     [SerializeField] private Transform PontaDaArma;
 
     [Header("Atributos")]
@@ -42,6 +41,7 @@ public class Torreta : MonoBehaviour
     private Transform Alvo = null;
     private Transform AlvoB = null;
     private float cooldown;
+    private float cooldownB;
     private int lvl = 0;
 
     private TorretaStatus level(int lvl)
@@ -72,7 +72,21 @@ public class Torreta : MonoBehaviour
             AcharAlvo();
             return;
         }
+        if(AlvoB == null)
+        {
+            
+        AcharAlvoBuff();
+        }
         RotacionarAteAlvo();
+        cooldownB += Time.deltaTime;
+        if (cooldownB >= 1f)
+        {
+            cooldownB = 0f;
+            if (level(lvl).buff > 0)
+            {
+                Buff();
+            }
+        }
         if (!ChecarAlvoEmRange())
         {
             Alvo = null;    
@@ -85,20 +99,13 @@ public class Torreta : MonoBehaviour
                 Atirar(); 
                 cooldown = 0f;
             }
-            if (level(lvl).buff > 0)
-            {
-                if (cooldown >= 1f)
-                {
-                AcharAlvoBuff();
-                Buff();
-                }
-                
-            }
+            
             
         }
     }
     public void LevarBuff(int _buff)
     {
+        Debug.Log("buffs");
         switch (_buff)
         {
             case 1:
@@ -108,7 +115,7 @@ public class Torreta : MonoBehaviour
                 BalasPorSec = 1000;
                 break;
             case 3:
-                Range += ((Range / 100) * 15);
+                Range = 1000;
                 break;
                 
         }
@@ -123,7 +130,6 @@ public class Torreta : MonoBehaviour
         if (crit <= level(lvl).critChance)
         {
             balacodigo.PegarValorDano(Mathf.RoundToInt((Dano * level(lvl).critDMG)));
-            Debug.Log(level(lvl).critDMG);
         }
         else
         {
@@ -157,9 +163,9 @@ public class Torreta : MonoBehaviour
 
     private void Buff()
     {
-        
-        GameObject balaobjbff = Instantiate(PrefabBalabff, AlvoB.position, Quaternion.identity);       
-
+        if(AlvoB == null)return;
+        AlvoB.GetComponent<Torreta>().LevarBuff(3);
+        Debug.Log(" bff ");
     }
     private void AcharAlvo()
     {
@@ -173,12 +179,13 @@ public class Torreta : MonoBehaviour
 
     private void AcharAlvoBuff()
     {
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, 1000, (Vector2)transform.position, 0f, Bmascara);
+        RaycastHit2D[] hitsb = Physics2D.CircleCastAll(transform.position, level(lvl).RangeB, (Vector2)transform.position, 0f, Bmascara);
 
-        if (hits.Length > 0)
+        if (hitsb.Length > 0)
         {
-            AlvoB = hits[Random.Range(0, hits.Length)].transform;
+            AlvoB = hitsb[0].transform;
         }
+        Debug.Log("achar alvo");
     }
 
 
