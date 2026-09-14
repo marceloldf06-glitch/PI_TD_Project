@@ -16,8 +16,11 @@ public class Bala : MonoBehaviour
     private int DanoDaBala;
     private int pierce = 0;
     private int slow = 0;
-    private int i = 0;
-
+    private int ricochete = 0;
+    private int p = 0;
+    private float dotdmg;
+    private float dotdur;
+    private float back;
     private Transform Alvo;
 
     public void PegarValorDano (int _dano)
@@ -33,12 +36,24 @@ public class Bala : MonoBehaviour
     {
         slow = _slow;
     }
+    public void pegarRicochete(int _ricochete)
+    {
+        ricochete = _ricochete;
+    }
 
     public void MarcarAlvo(Transform _alvo)
     {
         Alvo = _alvo;
     }
-    
+    public void pegardot(float _dotdmg, float _dotdur)
+    {
+        dotdmg = _dotdmg;dotdur = _dotdur;
+    }
+    public void pegarback(float _back)
+    {
+        back = _back;
+
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -54,19 +69,25 @@ public class Bala : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (ricochete > pierce)
+        {
+            pierce += ricochete;
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (i == pierce) {
+        collision.gameObject.GetComponent<Inimigo>().LevarDano(DanoDaBala);
+        collision.gameObject.GetComponent<Inimigo>().LevarDot(dotdmg, dotdur);
+        collision.gameObject.GetComponent<EMover>().Slow(slow);
+        collision.gameObject.GetComponent<EMover>().back(back);
+        Alvo = null;
+
+        p++;
+        if (p >= (pierce+1))
+        {
             Destroy(gameObject);
         }
-        else 
-        {
-            i++;
-        }
-        collision.gameObject.GetComponent<Inimigo>().LevarDano(DanoDaBala);
-        collision.gameObject.GetComponent<EMover>().Slow(slow);
+
     }
 
     private IEnumerator espera(int _t)

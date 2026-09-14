@@ -11,7 +11,6 @@ public class Torreta : MonoBehaviour
     [Header("Referencias")]
     [SerializeField] private Transform pontoDeRotacaoDaTorreta;
     [SerializeField] private LayerMask Emascara;
-    [SerializeField] private LayerMask Bmascara;
     [SerializeField] private GameObject PrefabBala;
     [SerializeField] private Transform PontaDaArma;
 
@@ -39,7 +38,6 @@ public class Torreta : MonoBehaviour
 
 
     private Transform Alvo = null;
-    private Transform AlvoB = null;
     private float cooldown;
     private float cooldownB;
     private int lvl = 0;
@@ -72,21 +70,7 @@ public class Torreta : MonoBehaviour
             AcharAlvo();
             return;
         }
-        if(AlvoB == null)
-        {
-            
-        AcharAlvoBuff();
-        }
         RotacionarAteAlvo();
-        cooldownB += Time.deltaTime;
-        if (cooldownB >= 1f)
-        {
-            cooldownB = 0f;
-            if (level(lvl).buff > 0)
-            {
-                Buff();
-            }
-        }
         if (!ChecarAlvoEmRange())
         {
             Alvo = null;    
@@ -102,24 +86,6 @@ public class Torreta : MonoBehaviour
             
             
         }
-    }
-    public void LevarBuff(int _buff)
-    {
-        Debug.Log("buffs");
-        switch (_buff)
-        {
-            case 1:
-                Dano += ((Dano / 100) * 15);
-                break;
-            case 2:
-                BalasPorSec = 1000;
-                break;
-            case 3:
-                Range = 1000;
-                break;
-                
-        }
-        StartCoroutine(tirabff(3));
     }
     private void Atirar()
     {
@@ -137,58 +103,21 @@ public class Torreta : MonoBehaviour
         }
         balacodigo.pegarPierce(level(lvl).pierce);
         balacodigo.pegarSlow(level(lvl).slow);
-
-
-        if (level(lvl).dotDur > 0)
-        {
-            float tid = level(lvl).dotDMG / level(lvl).dotDur;
-            
-        }
-
-
-        if (level(lvl).ricochete > 0)
-        {
-
-        }
-        
-            
-        
-        if (level(lvl).knockback > 0)
-        {
-            
-
-        }
-
-    }
-
-    private void Buff()
-    {
-        if(AlvoB == null)return;
-        AlvoB.GetComponent<Torreta>().LevarBuff(3);
-        Debug.Log(" bff ");
+        balacodigo.pegardot(level(lvl).dotDMG, level(lvl).dotDur);
+        balacodigo.pegarback(level(lvl).knockback);
+        Alvo = null;
     }
     private void AcharAlvo()
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, Range, (Vector2)transform.position, 0f, Emascara);
-
+        
         if (hits.Length > 0)
         {
             Alvo = hits[0].transform;
+            
         }
+        
     }
-
-    private void AcharAlvoBuff()
-    {
-        RaycastHit2D[] hitsb = Physics2D.CircleCastAll(transform.position, level(lvl).RangeB, (Vector2)transform.position, 0f, Bmascara);
-
-        if (hitsb.Length > 0)
-        {
-            AlvoB = hitsb[0].transform;
-        }
-        Debug.Log("achar alvo");
-    }
-
-
 
     private bool ChecarAlvoEmRange()
     {
@@ -234,12 +163,5 @@ public class Torreta : MonoBehaviour
         {
             upgradeTXT.SetText("Upgrade : " + level(lvl).Preco);
         }
-    }
-    private IEnumerator tirabff(int _sec)
-    {
-        yield return new WaitForSecondsRealtime(_sec);
-        BalasPorSec = level(lvl).velAttk;
-        Range = level(lvl).Range;
-        Dano = level(lvl).Dano;
     }
 }

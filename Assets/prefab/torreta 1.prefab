@@ -136,40 +136,31 @@ MonoBehaviour:
   Emascara:
     serializedVersion: 2
     m_Bits: 64
-  Bmascara:
-    serializedVersion: 2
-    m_Bits: 8
   PrefabBala: {fileID: 6397345047072454464, guid: 1a83ef134a2468d4bbc98aff32d88443, type: 3}
   PontaDaArma: {fileID: 319454152465579316}
   Levels:
   - velAttk: 1
-    Dano: 10
-    Range: 1
+    Dano: 1
+    Range: 10000
     Preco: 100
     critChance: 25
     critDMG: 3
-    ricochete: 0
     pierce: 1
-    slow: 0
+    slow: 50
     knockback: 0
-    dotDMG: 0
-    dotDur: 0
-    buff: 1
-    RangeB: 100
-  - velAttk: 10
+    dotDMG: 20
+    dotDur: 100
+  - velAttk: 1
     Dano: 100
     Range: 100
     Preco: 200
     critChance: 0
     critDMG: 0
-    ricochete: 0
     pierce: 0
     slow: 0
     knockback: 0
     dotDMG: 0
     dotDur: 0
-    buff: 1
-    RangeB: 0
   velRotacao: 200
 --- !u!61 &7955996251682878612
 BoxCollider2D:

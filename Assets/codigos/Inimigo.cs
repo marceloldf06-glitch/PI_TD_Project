@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Inimigo : MonoBehaviour
@@ -11,6 +12,10 @@ public class Inimigo : MonoBehaviour
 private bool isDestroyed = false;
     [SerializeField] private float hpBase;
     [SerializeField] private float valeQuantoBase;
+
+    private float dotdmg;
+    private float dotdur;
+    private int i;
 
     void Start()
     {
@@ -42,14 +47,25 @@ private bool isDestroyed = false;
             Destroy(gameObject);
         }
     }
+    public void LevarDot(float _dotdmg,float _dotdur)
+    {
+        dotdmg += _dotdmg;  dotdur += _dotdur;
+        
+    }
 
 
     // Start is called before the first frame update
-    
+
 
     // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         
+        if (i <= dotdur)
+        {
+            hp -= dotdmg;
+            i++;
+        }
+
     }
 }
