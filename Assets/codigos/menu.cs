@@ -10,11 +10,15 @@ public class menu : MonoBehaviour
     [SerializeField] TextMeshProUGUI moedasUI;
     [SerializeField] TextMeshProUGUI vidaUI;
     [SerializeField] TextMeshProUGUI waveUI;
+    [SerializeField] TextMeshProUGUI ChestUI;
+    [SerializeField] GameObject chestGambler;
     [SerializeField] Animator Anim;
 
     private bool menuAberto = true;
     private bool ispause;
     private float vel = 1;
+    private bool chestAb = false;
+    private bool chestMenuAberto = false;
     public void AcinonarMenu()
     {
         menuAberto = !menuAberto;
@@ -25,7 +29,7 @@ public class menu : MonoBehaviour
        moedasUI.text = manager.main.moedas.ToString();
        vidaUI.text = manager.main.vida.ToString();
        waveUI.text = ESpawner.WaveAtual.ToString();
-        
+       ChestUI.text = manager.main.baus.ToString();
     }
 
     public void pausar()
@@ -69,5 +73,18 @@ public class menu : MonoBehaviour
     private void FixedUpdate()
     {
         Time.timeScale = vel;
+    }
+
+    public void chest()
+    {
+        if (manager.main.baus > 0)
+        {
+            manager.main.baus--;
+        }
+    }
+    public void abChest()
+    {
+        chestMenuAberto = !chestMenuAberto;
+       chestGambler.SetActive(chestMenuAberto); 
     }
 }

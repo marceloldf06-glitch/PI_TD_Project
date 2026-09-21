@@ -139,23 +139,23 @@ MonoBehaviour:
   PrefabBala: {fileID: 6397345047072454464, guid: 1a83ef134a2468d4bbc98aff32d88443, type: 3}
   PontaDaArma: {fileID: 319454152465579316}
   Levels:
-  - velAttk: 1
+  - velAttk: 20
     Dano: 1
     Range: 10000
     Preco: 100
     critChance: 25
-    critDMG: 3
-    pierce: 1
+    critDMG: 100
+    pierce: 100
     slow: 50
     knockback: 0
-    dotDMG: 20
+    dotDMG: 2
     dotDur: 100
   - velAttk: 1
     Dano: 100
     Range: 100
     Preco: 200
-    critChance: 0
-    critDMG: 0
+    critChance: 15
+    critDMG: 10000
     pierce: 0
     slow: 0
     knockback: 0

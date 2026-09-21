@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class Inimigo : MonoBehaviour
@@ -8,11 +9,9 @@ public class Inimigo : MonoBehaviour
     [Header("Atributos")]
     [SerializeField] private float hp = 2;
     [SerializeField] private float valeQuanto = 10;
-
-private bool isDestroyed = false;
     [SerializeField] private float hpBase;
     [SerializeField] private float valeQuantoBase;
-
+    private bool isDestroyed = false;
     private float dotdmg;
     private float dotdur;
     private int i;
@@ -45,6 +44,11 @@ private bool isDestroyed = false;
             manager.main.ganharDinheiro(Mathf.RoundToInt(valeQuanto));
             isDestroyed = true;
             Destroy(gameObject);
+            int cc = Random.Range(1, 100);
+            if (cc <= 1)
+            {
+                manager.main.baus++;
+            }
         }
     }
     public void LevarDot(float _dotdmg,float _dotdur)

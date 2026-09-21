@@ -140,7 +140,7 @@ MonoBehaviour:
   PontaDaArma: {fileID: 319454152465579316}
   Levels:
   - velAttk: 1
-    Dano: 1
+    Dano: 20
     Range: 3
     Preco: 50
     critChance: 100
@@ -156,11 +156,11 @@ MonoBehaviour:
     Preco: 100
     critChance: 0
     critDMG: 0
-    pierce: 0
+    pierce: 3
     slow: 0
     knockback: 0
-    dotDMG: 0
-    dotDur: 0
+    dotDMG: 10
+    dotDur: 2
   velRotacao: 200
 --- !u!61 &7794826451414741407
 BoxCollider2D:

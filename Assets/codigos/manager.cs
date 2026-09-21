@@ -16,7 +16,8 @@ public class manager : MonoBehaviour
     public int vida = 10;
 
     public int moedas;
-
+    public int moedas_iniciais = 100;
+    public int baus = 0;
     private void Update()
     {
         if(vida <= 0 )
@@ -31,7 +32,7 @@ public class manager : MonoBehaviour
 
     private void Start()
     {
-        moedas = 100;
+        moedas = moedas_iniciais;
     }
 
     public void levarDano(int dano)
