@@ -3306,18 +3306,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 799387690550232649, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
-      propertyPath: m_Name
-      value: AcionarLoja
-      objectReference: {fileID: 0}
-    - target: {fileID: 1311118980434742376, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3043578600687864127, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
-      propertyPath: m_BlockingObjects
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3518216176571790683, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3350,21 +3338,45 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 7709840894856608411}
-    - target: {fileID: 4247303313375718081, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetTorreSelecionada
+    - target: {fileID: 6300679701690006166, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
+      propertyPath: m_fontSize
+      value: 20.3
       objectReference: {fileID: 0}
-    - target: {fileID: 4247303313375718081, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: setarTorre
+    - target: {fileID: 6300679701690006166, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 97014535f86f3424bb0eb29a2108fccc, type: 2}
+    - target: {fileID: 6300679701690006166, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20.3
       objectReference: {fileID: 0}
-    - target: {fileID: 5037954364599920422, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
-      propertyPath: m_text
-      value: Loja
+    - target: {fileID: 6300679701690006166, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1245971528202768617, guid: 97014535f86f3424bb0eb29a2108fccc, type: 2}
+    - target: {fileID: 6300679701690006166, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6423237778912089719, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
-      propertyPath: m_Name
-      value: Loja
+    - target: {fileID: 6422307529906298442, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
+      propertyPath: m_fontSize
+      value: 20.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422307529906298442, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 97014535f86f3424bb0eb29a2108fccc, type: 2}
+    - target: {fileID: 6422307529906298442, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422307529906298442, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1245971528202768617, guid: 97014535f86f3424bb0eb29a2108fccc, type: 2}
+    - target: {fileID: 6422307529906298442, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6594440992519796266, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3374,13 +3386,41 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 7709840894856608411}
-    - target: {fileID: 6594440992519796266, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetTorreSelecionada
+    - target: {fileID: 6729643627550444650, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4999999
       objectReference: {fileID: 0}
-    - target: {fileID: 6594440992519796266, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: setarTorre
+    - target: {fileID: 6729643627550444650, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6729643627550444650, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6729643627550444650, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7651518805031468344, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 7651518805031468344, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 7651518805031468344, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 7651518805031468344, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -298.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 7651518805031468344, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8628628535315027462, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
       propertyPath: m_Pivot.x
@@ -3465,10 +3505,6 @@ PrefabInstance:
     - target: {fileID: 8771371699816016649, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 8771371699816016649, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
