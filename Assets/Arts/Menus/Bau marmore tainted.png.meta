@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bau marmore tainted_0: 4447085132525289488
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "bot\xE3o pequeno_0": 5997518368691198286
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

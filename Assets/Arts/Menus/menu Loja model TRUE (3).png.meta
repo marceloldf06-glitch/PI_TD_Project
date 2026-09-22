@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      menu Loja model TRUE (3)_0: 8197896795787532593
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

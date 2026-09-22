@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class menu : MonoBehaviour
 {
@@ -10,14 +11,17 @@ public class menu : MonoBehaviour
     [SerializeField] TextMeshProUGUI moedasUI;
     [SerializeField] TextMeshProUGUI vidaUI;
     [SerializeField] TextMeshProUGUI waveUI;
+    [SerializeField] Animator Anim;
+    [Header("Chest")]
     [SerializeField] TextMeshProUGUI ChestUI;
     [SerializeField] GameObject chestGambler;
-    [SerializeField] Animator Anim;
-
+    [SerializeField] Sprite[] items;
+    [SerializeField] Image i1;
+    [SerializeField] Image i2;
+    [SerializeField] Image i3;
     private bool menuAberto = true;
     private bool ispause;
     private float vel = 1;
-    private bool chestAb = false;
     private bool chestMenuAberto = false;
     public void AcinonarMenu()
     {
@@ -67,6 +71,10 @@ public class menu : MonoBehaviour
     void Start()
     {
         Time.timeScale = vel;
+        i1.sprite = items[0];
+        i2.sprite = items[0];
+        i3.sprite = items[0];
+        chestGambler.SetActive(chestMenuAberto);
     }
 
     // Update is called once per frame
@@ -86,5 +94,11 @@ public class menu : MonoBehaviour
     {
         chestMenuAberto = !chestMenuAberto;
        chestGambler.SetActive(chestMenuAberto); 
+    }
+    public void rchest()
+    {
+        i1.sprite = items[0];
+        i2.sprite = items[0];
+        i3.sprite = items[0];
     }
 }
