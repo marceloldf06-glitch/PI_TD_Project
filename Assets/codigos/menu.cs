@@ -23,6 +23,10 @@ public class menu : MonoBehaviour
     private bool ispause;
     private float vel = 1;
     private bool chestMenuAberto = false;
+    private int r1;
+    private int r2;
+    private int r3;
+
     public void AcinonarMenu()
     {
         menuAberto = !menuAberto;
@@ -88,6 +92,12 @@ public class menu : MonoBehaviour
         if (manager.main.baus > 0)
         {
             manager.main.baus--;
+            if (items.Length > 1)
+            {
+                i1.sprite = items[0];
+                i2.sprite = items[0];
+                i3.sprite = items[0];
+            }
         }
     }
     public void abChest()
@@ -95,7 +105,7 @@ public class menu : MonoBehaviour
         chestMenuAberto = !chestMenuAberto;
        chestGambler.SetActive(chestMenuAberto); 
     }
-    public void rchest()
+    public void rchest(int i)
     {
         i1.sprite = items[0];
         i2.sprite = items[0];
