@@ -3305,15 +3305,15 @@ PrefabInstance:
     - target: {fileID: 6606274835670704170, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
       propertyPath: 'items.Array.data[1]'
       value: 
-      objectReference: {fileID: 4447085132525289488, guid: ebaf55d47f7f50b4ca8beb1603eb2d89, type: 3}
+      objectReference: {fileID: 1333360212207933260, guid: ca3843657c34ee841aeaa67bf9abc20e, type: 3}
     - target: {fileID: 6606274835670704170, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
       propertyPath: 'items.Array.data[2]'
       value: 
-      objectReference: {fileID: 4447085132525289488, guid: ebaf55d47f7f50b4ca8beb1603eb2d89, type: 3}
+      objectReference: {fileID: 7475662491167044047, guid: 78d89fb0bec54df42ae95192620a2053, type: 3}
     - target: {fileID: 6606274835670704170, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
       propertyPath: 'items.Array.data[3]'
       value: 
-      objectReference: {fileID: 4447085132525289488, guid: ebaf55d47f7f50b4ca8beb1603eb2d89, type: 3}
+      objectReference: {fileID: -3558132910766475638, guid: 8803ee6dc9346bd4196be445f954e9d7, type: 3}
     - target: {fileID: 8628628535315027462, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
       propertyPath: m_Pivot.x
       value: 0
