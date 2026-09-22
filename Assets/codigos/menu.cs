@@ -97,6 +97,7 @@ public class menu : MonoBehaviour
                     r1 = Random.Range(1, items.Length - 1);
                     r2 = Random.Range(1, items.Length - 1);
                     r3 = Random.Range(1, items.Length - 1);
+                
                 i1.sprite = items[r1];
                 i2.sprite = items[r2];
                 i3.sprite = items[r2];
@@ -113,5 +114,17 @@ public class menu : MonoBehaviour
         i1.sprite = items[0];
         i2.sprite = items[0];
         i3.sprite = items[0];
+        if (i == 1)
+        {
+            
+        } 
+        else if (i == 2)
+        {
+
+        }
+        else if (i == 3)
+        {
+
+        }
     }
 }
