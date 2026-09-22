@@ -94,9 +94,12 @@ public class menu : MonoBehaviour
             manager.main.baus--;
             if (items.Length > 1)
             {
-                i1.sprite = items[0];
-                i2.sprite = items[0];
-                i3.sprite = items[0];
+                r1 = Random.Range(1, items.Length - 1);
+                r2 = Random.Range(1, items.Length - 1);
+                r3 = Random.Range(1, items.Length - 1);
+                i1.sprite = items[r1];
+                i2.sprite = items[r2];
+                i3.sprite = items[r2];
             }
         }
     }
