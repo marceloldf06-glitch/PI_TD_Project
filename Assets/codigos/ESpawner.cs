@@ -26,6 +26,7 @@ public class ESpawner : MonoBehaviour
     private int EaSpawnar;
     private bool Spawnando = false;
     private float EPS;
+    private bool w5; 
 
     private void Awake()
     {
@@ -54,7 +55,12 @@ public class ESpawner : MonoBehaviour
         {
             AcabarWave();  
         }
-
+        float wc = WaveAtual / 5.0f;
+        if (wc == Mathf.RoundToInt(wc) && w5)
+        {
+            manager.main.baus++;
+            w5 = false;
+        }
 
     }
 
@@ -82,6 +88,7 @@ public class ESpawner : MonoBehaviour
         Spawnando = true;
         EaSpawnar = EporWave();
         EPS = EporSec();
+        w5 = true;
         
     }
    private void AcabarWave()
