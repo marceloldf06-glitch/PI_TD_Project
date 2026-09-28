@@ -103,11 +103,11 @@ public class menu : MonoBehaviour
                 while (r1 == r2) {
                     r2 = Random.Range(1, items.Length );
                 }
-                /*if (items.Length-1 >= 3) {
+                if (items.Length >= 3) {
                     while (r2 == r3 || r3 == r1)
                     {
-                        r3 = Random.Range(1, items.Length - 1);
-                    }}*/
+                        r3 = Random.Range(1, items.Length);
+                    }}
                     i1.sprite = items[r1];
                     i2.sprite = items[r2];
                     i3.sprite = items[r2];
