@@ -11,6 +11,7 @@ public class menu : MonoBehaviour
     [SerializeField] TextMeshProUGUI moedasUI;
     [SerializeField] TextMeshProUGUI vidaUI;
     [SerializeField] TextMeshProUGUI waveUI;
+    [SerializeField] TextMeshProUGUI velUI;
     [SerializeField] Animator Anim;
     [Header("Chest")]
     [SerializeField] TextMeshProUGUI ChestUI;
@@ -26,6 +27,7 @@ public class menu : MonoBehaviour
     private int r1;
     private int r2;
     private int r3;
+    private bool bp = false;
 
     public void AcinonarMenu()
     {
@@ -50,6 +52,7 @@ public class menu : MonoBehaviour
         {
             Time.timeScale = 0f;
             ispause = !ispause;
+            velUI.SetText("0");
         }
     }
     public void mudarvel()
@@ -88,30 +91,37 @@ public class menu : MonoBehaviour
     private void FixedUpdate()
     {
         Time.timeScale = vel;
+        velUI.SetText(vel.ToString());
     }
 
     public void chest()
     {
         if (manager.main.baus > 0)
         {
+            if (!bp) { 
             manager.main.baus--;
-            if (items.Length > 1)
-            {
-                    r1 = Random.Range(1, items.Length );
-                    r2 = Random.Range(1, items.Length );
-                    r3 = Random.Range(1, items.Length );
-                while (r1 == r2) {
-                    r2 = Random.Range(1, items.Length );
-                }
-                if (items.Length >= 3) {
-                    while (r2 == r3 || r3 == r1)
+                if (items.Length > 1)
+                {
+                    r1 = Random.Range(1, items.Length);
+                    r2 = Random.Range(1, items.Length);
+                    r3 = Random.Range(1, items.Length);
+                    while (r1 == r2)
                     {
-                        r3 = Random.Range(1, items.Length);
-                    }}
+                        r2 = Random.Range(1, items.Length);
+                    }
+                    if (items.Length >= 3)
+                    {
+                        while (r3 == r2 || r3 == r1)
+                        {
+                            r3 = Random.Range(1, items.Length);
+                            
+                        }
+                    }
                     i1.sprite = items[r1];
                     i2.sprite = items[r2];
-                    i3.sprite = items[r2];
-                
+                    i3.sprite = items[r3];
+                    bp = true;
+                } 
             }
         }
     }
@@ -122,6 +132,7 @@ public class menu : MonoBehaviour
     }
     public void rchest(int i)
     {
+        bp = false;
         i1.sprite = items[0];
         i2.sprite = items[0];
         i3.sprite = items[0];
