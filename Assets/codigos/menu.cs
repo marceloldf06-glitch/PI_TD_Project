@@ -65,7 +65,10 @@ public class menu : MonoBehaviour
             vel = 1f;
         }
     }
-
+    public void voltar()
+    {
+        SceneManager.LoadScene("MenuInicial");
+    }
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // loads current scene
