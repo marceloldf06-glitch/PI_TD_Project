@@ -137,5 +137,9 @@ public class menu : MonoBehaviour
         {
 
         }
+        else
+        {
+            return;
+        }
     }
 }
