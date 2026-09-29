@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,6 +21,8 @@ public class menu : MonoBehaviour
     [SerializeField] Image i1;
     [SerializeField] Image i2;
     [SerializeField] Image i3;
+    [Header("Inv")]
+    [SerializeField] GameObject Inventory;
     private bool menuAberto = true;
     private bool ispause;
     private float vel = 1;
@@ -85,6 +88,7 @@ public class menu : MonoBehaviour
         i2.sprite = items[0];
         i3.sprite = items[0];
         chestGambler.SetActive(chestMenuAberto);
+        Inventory.SetActive(chestMenuAberto);
     }
 
     // Update is called once per frame
@@ -127,6 +131,10 @@ public class menu : MonoBehaviour
     }
     public void abChest()
     {
+        if (chestMenuAberto)
+        {
+            return; 
+        }
         chestMenuAberto = !chestMenuAberto;
        chestGambler.SetActive(chestMenuAberto); 
     }
@@ -152,5 +160,22 @@ public class menu : MonoBehaviour
         {
             return;
         }
+        
+    }
+    public void abInv()
+    {
+        if (chestMenuAberto)
+        {
+            return;
+        }
+        chestMenuAberto = true;
+        Inventory.SetActive(chestMenuAberto);
+    }
+    public void fechar_menu()
+    {
+        chestMenuAberto = false;
+        Inventory.SetActive(chestMenuAberto);
+        chestGambler.SetActive(chestMenuAberto);
+        
     }
 }
