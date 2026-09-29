@@ -5,9 +5,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class lvlloader : MonoBehaviour
-
+    
 {
-    private int fase = 3;
+    [Header("referencia")]
+    [SerializeField] private int fase;
     
     private void OnMouseDown()
     {

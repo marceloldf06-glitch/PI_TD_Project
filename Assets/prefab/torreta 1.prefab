@@ -148,7 +148,7 @@ MonoBehaviour:
     pierce: 100
     slow: 50
     knockback: 0
-    dotDMG: 2
+    dotDMG: 1
     dotDur: 100
   - velAttk: 1
     Dano: 100
