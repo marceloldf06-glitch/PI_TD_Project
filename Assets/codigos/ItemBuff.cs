@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ItemBuff : MonoBehaviour
 {
+    public Sprite spriteitem;
     public float velAttk;
     public float Dano;
     public float Range;
