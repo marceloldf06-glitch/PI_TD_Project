@@ -28,6 +28,7 @@ public class Torreta : MonoBehaviour
     private float Dano;
     private int precoUpgradeBase;
     private float Range;
+    private float crtc;
 
     private Button botaoUpgrade;
     private GameObject upgradeUI;
@@ -49,9 +50,9 @@ public class Torreta : MonoBehaviour
 
     void Start()
     {
-        BalasPorSec = level(lvl).velAttk;
-        Range = level(lvl).Range;
-        Dano = level(lvl).Dano;
+        BalasPorSec = level(lvl).velAttk + GlobalBuffManager.main.velAttk;
+        Range = level(lvl).Range + GlobalBuffManager.main.Range;
+        Dano = level(lvl).Dano + GlobalBuffManager.main.Dano;
         Menus menuAUsar = MenuManager.main.GetMenuSelecionado();
         upgradeUI = menuAUsar.upgradeUI;
         upgradeTXT = menuAUsar.upgradeTXT;
@@ -89,22 +90,23 @@ public class Torreta : MonoBehaviour
     }
     private void Atirar()
     {
+        crtc = level(lvl).critChance + GlobalBuffManager.main.critChance;
         GameObject balaobj = Instantiate(PrefabBala, PontaDaArma.position, Quaternion.identity);
         Bala balacodigo = balaobj.GetComponent<Bala>();
         balacodigo.MarcarAlvo(Alvo);
         int crit = Random.Range(1, 100);
-        if (crit <= level(lvl).critChance)
+        if (crit >= (100 - crtc))
         {
-            balacodigo.PegarValorDano(Mathf.RoundToInt((Dano * level(lvl).critDMG)));
+            balacodigo.PegarValorDano(Mathf.RoundToInt((Dano * (level(lvl).critDMG + GlobalBuffManager.main.critDMG))));
         }
         else
         {
             balacodigo.PegarValorDano(Mathf.RoundToInt(Dano));
         }
-        balacodigo.pegarPierce(level(lvl).pierce);
-        balacodigo.pegarSlow(level(lvl).slow);
-        balacodigo.pegardot(level(lvl).dotDMG, level(lvl).dotDur);
-        balacodigo.pegarback(level(lvl).knockback);
+        balacodigo.pegarPierce(level(lvl).pierce + GlobalBuffManager.main.pierce);
+        balacodigo.pegarSlow(level(lvl).slow + GlobalBuffManager.main.slow);
+        balacodigo.pegardot(level(lvl).dotDMG + GlobalBuffManager.main.dotDMG, level(lvl).dotDur + GlobalBuffManager.main.dotDur);
+        balacodigo.pegarback(level(lvl).knockback + GlobalBuffManager.main.knockback);
         Alvo = null;
     }
     private void AcharAlvo()
@@ -152,9 +154,9 @@ public class Torreta : MonoBehaviour
         }
         manager.main.gastarDinheiro(Mathf.RoundToInt( level(lvl).Preco));
         lvl++;
-        BalasPorSec = level(lvl).velAttk;
-        Range = level(lvl).Range;
-        Dano = level(lvl).Dano;
+        BalasPorSec = level(lvl).velAttk + GlobalBuffManager.main.velAttk;
+        Range = level(lvl).Range + GlobalBuffManager.main.Range;
+        Dano = level(lvl).Dano + GlobalBuffManager.main.Dano;
         if (lvl >= (Levels.Length - 1))
         {
             upgradeTXT.SetText("Max Level");

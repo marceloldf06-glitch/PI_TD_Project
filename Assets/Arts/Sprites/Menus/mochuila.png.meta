@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mochuila_0: -97141424291177952
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

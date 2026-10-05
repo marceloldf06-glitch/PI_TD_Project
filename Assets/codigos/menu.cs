@@ -23,6 +23,7 @@ public class menu : MonoBehaviour
     [SerializeField] Image i3;
     [Header("Inv")]
     [SerializeField] GameObject Inventory;
+    [SerializeField] Image[] slots;
     private bool menuAberto = true;
     private bool ispause;
     private float vel = 1;
@@ -31,6 +32,7 @@ public class menu : MonoBehaviour
     private int r2;
     private int r3;
     private bool bp = false;
+    private int slot = 0;
 
     public void AcinonarMenu()
     {
@@ -140,27 +142,31 @@ public class menu : MonoBehaviour
     }
     public void rchest(int i)
     {
+        if (slot >= slots.Length-1) {
+            
+
+            if (i == 1)
+            {
+                slots[slot].sprite = i1.sprite;
+            }
+            else if (i == 2)
+            {
+                slots[slot].sprite = i2.sprite;
+            }
+            else if (i == 3)
+            {
+                slots[slot].sprite = i3.sprite;
+            }
+            else
+            {
+                return;
+            }
+            slot++;
+        }
         bp = false;
         i1.sprite = items[0];
         i2.sprite = items[0];
         i3.sprite = items[0];
-        if (i == 1)
-        {
-            
-        } 
-        else if (i == 2)
-        {
-
-        }
-        else if (i == 3)
-        {
-
-        }
-        else
-        {
-            return;
-        }
-        
     }
     public void abInv()
     {
