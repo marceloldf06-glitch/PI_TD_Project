@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -115,14 +116,14 @@ public class menu : MonoBehaviour
                     r1 = Random.Range(1, items.Count);
                     r2 = Random.Range(1, items.Count);
                     r3 = Random.Range(1, items.Count);
-                    if (items.Count >= 2)
+                    if (items.Count >= 3)
                     {
                         while (r1 == r2)
                         {
                             r2 = Random.Range(1, items.Count);
                         }
                     }
-                    if (items.Count >= 3)
+                    if (items.Count >= 4)
                     {
                         while (r3 == r2 || r3 == r1)
                         {
@@ -160,6 +161,7 @@ public class menu : MonoBehaviour
                 {
                     slots[slot].sprite = i1.sprite;
                     items.RemoveAt(r1);
+                    
 
                 }
                 else if (i == 2)
@@ -172,9 +174,10 @@ public class menu : MonoBehaviour
                     slots[slot].sprite = i3.sprite;
                     items.RemoveAt(r3);
                 }
-                if (items.Count == 0)
+                if (items.Count == 1)
                 {
                     temitem = false;
+                    botaochest.SetText("Acabou os items");
                 }
                 slot++;
             }
@@ -187,6 +190,7 @@ public class menu : MonoBehaviour
             i1.sprite = items[0];
             i2.sprite = items[0];
             i3.sprite = items[0];
+            Debug.Log(items.Count);
         }
     }
     public void abInv()

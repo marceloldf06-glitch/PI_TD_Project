@@ -66,6 +66,9 @@ public class Torreta : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        BalasPorSec = level(lvl).velAttk + GlobalBuffManager.main.velAttk;
+        Range = level(lvl).Range + GlobalBuffManager.main.Range;
+        Dano = level(lvl).Dano + GlobalBuffManager.main.Dano;
         if (Alvo == null)
         {
             AcharAlvo();
@@ -154,9 +157,6 @@ public class Torreta : MonoBehaviour
         }
         manager.main.gastarDinheiro(Mathf.RoundToInt( level(lvl).Preco));
         lvl++;
-        BalasPorSec = level(lvl).velAttk + GlobalBuffManager.main.velAttk;
-        Range = level(lvl).Range + GlobalBuffManager.main.Range;
-        Dano = level(lvl).Dano + GlobalBuffManager.main.Dano;
         if (lvl >= (Levels.Length - 1))
         {
             upgradeTXT.SetText("Max Level");
