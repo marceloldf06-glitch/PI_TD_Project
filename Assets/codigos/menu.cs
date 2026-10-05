@@ -35,7 +35,8 @@ public class menu : MonoBehaviour
     private bool bp = false;
     private int slot = 0;
     private bool invf = false;
-    private bool temitem;
+    private bool temitem = true;
+    
 
     public void AcinonarMenu()
     {
@@ -110,8 +111,7 @@ public class menu : MonoBehaviour
             
             if (!bp && !invf && temitem) { 
             manager.main.baus--;
-                if (items.Count >= 1)
-                {
+                
                     r1 = Random.Range(1, items.Count);
                     r2 = Random.Range(1, items.Count);
                     r3 = Random.Range(1, items.Count);
@@ -134,8 +134,8 @@ public class menu : MonoBehaviour
                     i2.sprite = items[r2];
                     i3.sprite = items[r3];
                     bp = true;
-                    
-                } 
+            
+                
             }
         }
     }
@@ -150,43 +150,44 @@ public class menu : MonoBehaviour
     }
     public void rchest(int i)
     {
-        if (slot <= slots.Length-1) {
-            
+        if (bp)
+        {
+            if (slot <= slots.Length - 1)
+            {
 
-            if (i == 1)
-            {
-                slots[slot].sprite = i1.sprite;
-                items.RemoveAt(r1);
-                
-            }
-            else if (i == 2)
-            {
-                slots[slot].sprite = i2.sprite;
-                items.RemoveAt(r2);
-            }
-            else if (i == 3)
-            {
-                slots[slot].sprite = i3.sprite;
-                items.RemoveAt(r3);
+
+                if (i == 1)
+                {
+                    slots[slot].sprite = i1.sprite;
+                    items.RemoveAt(r1);
+
+                }
+                else if (i == 2)
+                {
+                    slots[slot].sprite = i2.sprite;
+                    items.RemoveAt(r2);
+                }
+                else if (i == 3)
+                {
+                    slots[slot].sprite = i3.sprite;
+                    items.RemoveAt(r3);
+                }
+                if (items.Count == 0)
+                {
+                    temitem = false;
+                }
+                slot++;
             }
             else
             {
-                return;
+                invf = true;
+                botaochest.SetText("Inventario Cheio");
             }
-            if (items.Count == 0)
-            {
-                temitem = false;
-            }
-            slot++;
-        } else
-        {
-            invf = true;
-            botaochest.SetText("Inventario Cheio");
-        }
             bp = false;
-        i1.sprite = items[0];
-        i2.sprite = items[0];
-        i3.sprite = items[0];
+            i1.sprite = items[0];
+            i2.sprite = items[0];
+            i3.sprite = items[0];
+        }
     }
     public void abInv()
     {
