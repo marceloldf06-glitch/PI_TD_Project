@@ -17,10 +17,11 @@ public class menu : MonoBehaviour
     [Header("Chest")]
     [SerializeField] TextMeshProUGUI ChestUI;
     [SerializeField] GameObject chestGambler;
-    [SerializeField] Sprite[] items;
+    [SerializeField] List<Sprite> items;
     [SerializeField] Image i1;
     [SerializeField] Image i2;
     [SerializeField] Image i3;
+    [SerializeField] TextMeshProUGUI botaochest;
     [Header("Inv")]
     [SerializeField] GameObject Inventory;
     [SerializeField] Image[] slots;
@@ -33,6 +34,8 @@ public class menu : MonoBehaviour
     private int r3;
     private bool bp = false;
     private int slot = 0;
+    private bool invf = false;
+    private bool temitem;
 
     public void AcinonarMenu()
     {
@@ -104,22 +107,26 @@ public class menu : MonoBehaviour
     {
         if (manager.main.baus > 0)
         {
-            if (!bp) { 
+            
+            if (!bp && !invf && temitem) { 
             manager.main.baus--;
-                if (items.Length > 1)
+                if (items.Count >= 1)
                 {
-                    r1 = Random.Range(1, items.Length);
-                    r2 = Random.Range(1, items.Length);
-                    r3 = Random.Range(1, items.Length);
-                    while (r1 == r2)
+                    r1 = Random.Range(1, items.Count);
+                    r2 = Random.Range(1, items.Count);
+                    r3 = Random.Range(1, items.Count);
+                    if (items.Count >= 2)
                     {
-                        r2 = Random.Range(1, items.Length);
+                        while (r1 == r2)
+                        {
+                            r2 = Random.Range(1, items.Count);
+                        }
                     }
-                    if (items.Length >= 3)
+                    if (items.Count >= 3)
                     {
                         while (r3 == r2 || r3 == r1)
                         {
-                            r3 = Random.Range(1, items.Length);
+                            r3 = Random.Range(1, items.Count);
                             
                         }
                     }
@@ -127,6 +134,7 @@ public class menu : MonoBehaviour
                     i2.sprite = items[r2];
                     i3.sprite = items[r3];
                     bp = true;
+                    
                 } 
             }
         }
@@ -142,28 +150,40 @@ public class menu : MonoBehaviour
     }
     public void rchest(int i)
     {
-        if (slot >= slots.Length-1) {
+        if (slot <= slots.Length-1) {
             
 
             if (i == 1)
             {
                 slots[slot].sprite = i1.sprite;
+                items.RemoveAt(r1);
+                
             }
             else if (i == 2)
             {
                 slots[slot].sprite = i2.sprite;
+                items.RemoveAt(r2);
             }
             else if (i == 3)
             {
                 slots[slot].sprite = i3.sprite;
+                items.RemoveAt(r3);
             }
             else
             {
                 return;
             }
+            if (items.Count == 0)
+            {
+                temitem = false;
+            }
             slot++;
+        } else
+        {
+            invf = true;
+            botaochest.SetText("Inventario Cheio");
         }
-        bp = false;
+            bp = false;
         i1.sprite = items[0];
         i2.sprite = items[0];
         i3.sprite = items[0];
