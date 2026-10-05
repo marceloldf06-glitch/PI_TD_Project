@@ -24,4 +24,17 @@ public class GlobalBuffManager : MonoBehaviour
     public float dotDMG;
     public float dotDur;
 
+    public void pegarbuff(ItemBuff spritebuff)
+    {
+        velAttk += spritebuff.velAttk;
+        Dano += spritebuff.Dano;
+        Range += spritebuff.Range;
+        critChance += spritebuff.critChance;
+        critDMG += spritebuff.critDMG;
+        pierce += spritebuff.pierce;
+        slow += spritebuff.slow;
+        knockback += spritebuff.knockback;
+        dotDMG += spritebuff.dotDMG;
+        dotDur += spritebuff.dotDur;
+    }
 }

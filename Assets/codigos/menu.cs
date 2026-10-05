@@ -161,25 +161,25 @@ public class menu : MonoBehaviour
                 {
                     slots[slot].sprite = i1.sprite;
                     items.RemoveAt(r1);
-                    
-
                 }
                 else if (i == 2)
                 {
                     slots[slot].sprite = i2.sprite;
                     items.RemoveAt(r2);
+
                 }
                 else if (i == 3)
                 {
                     slots[slot].sprite = i3.sprite;
                     items.RemoveAt(r3);
+
                 }
                 if (items.Count == 1)
                 {
                     temitem = false;
                     botaochest.SetText("Acabou os items");
                 }
-                slot++;
+                
             }
             else
             {
@@ -190,7 +190,8 @@ public class menu : MonoBehaviour
             i1.sprite = items[0];
             i2.sprite = items[0];
             i3.sprite = items[0];
-            Debug.Log(items.Count);
+            slot++;
+
         }
     }
     public void abInv()
