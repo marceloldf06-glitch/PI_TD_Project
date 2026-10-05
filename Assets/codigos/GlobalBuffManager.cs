@@ -37,4 +37,7 @@ public class GlobalBuffManager : MonoBehaviour
         dotDMG += spritebuff.dotDMG;
         dotDur += spritebuff.dotDur;
     }
+
+
+
 }
