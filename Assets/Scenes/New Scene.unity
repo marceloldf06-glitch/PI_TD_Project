@@ -2619,6 +2619,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 7709840894856608411}
+    - target: {fileID: 6606274835670704170, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
+      propertyPath: 'items.Array.data[3]'
+      value: 
+      objectReference: {fileID: -3558132910766475638, guid: 8803ee6dc9346bd4196be445f954e9d7, type: 3}
     - target: {fileID: 8628628535315027462, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -10159,8 +10163,40 @@ PrefabInstance:
       objectReference: {fileID: 58178281}
     - target: {fileID: 8643321432492217860, guid: 028e7d93f03ff4e49b23af726c7cf47f, type: 3}
       propertyPath: items.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8643321432492217860, guid: 028e7d93f03ff4e49b23af726c7cf47f, type: 3}
+      propertyPath: items.Array.data[0].Dano
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643321432492217860, guid: 028e7d93f03ff4e49b23af726c7cf47f, type: 3}
+      propertyPath: items.Array.data[1].Range
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643321432492217860, guid: 028e7d93f03ff4e49b23af726c7cf47f, type: 3}
+      propertyPath: items.Array.data[2].pierce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643321432492217860, guid: 028e7d93f03ff4e49b23af726c7cf47f, type: 3}
+      propertyPath: items.Array.data[0].velAttk
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643321432492217860, guid: 028e7d93f03ff4e49b23af726c7cf47f, type: 3}
+      propertyPath: items.Array.data[0].spriteitem
+      value: 
+      objectReference: {fileID: 1333360212207933260, guid: ca3843657c34ee841aeaa67bf9abc20e, type: 3}
+    - target: {fileID: 8643321432492217860, guid: 028e7d93f03ff4e49b23af726c7cf47f, type: 3}
+      propertyPath: items.Array.data[1].spriteitem
+      value: 
+      objectReference: {fileID: 7475662491167044047, guid: 78d89fb0bec54df42ae95192620a2053, type: 3}
+    - target: {fileID: 8643321432492217860, guid: 028e7d93f03ff4e49b23af726c7cf47f, type: 3}
+      propertyPath: items.Array.data[2].critChance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643321432492217860, guid: 028e7d93f03ff4e49b23af726c7cf47f, type: 3}
+      propertyPath: items.Array.data[2].spriteitem
+      value: 
+      objectReference: {fileID: -3558132910766475638, guid: 8803ee6dc9346bd4196be445f954e9d7, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
