@@ -26,6 +26,8 @@ public class menu : MonoBehaviour
     [Header("Inv")]
     [SerializeField] GameObject Inventory;
     [SerializeField] Image[] slots;
+    [SerializeField] TextMeshProUGUI tituloitem;
+    [SerializeField] TextMeshProUGUI descitem;
     private bool menuAberto = true;
     private bool ispause;
     private float vel = 1;
@@ -210,5 +212,10 @@ public class menu : MonoBehaviour
         Inventory.SetActive(chestMenuAberto);
         chestGambler.SetActive(chestMenuAberto);
         
+    }
+    public void mostradesc(int pos)
+    {
+        tituloitem.SetText(slots[pos].sprite.name);
+        descitem.SetText(descriprion(slots[pos].sprite))
     }
 }
