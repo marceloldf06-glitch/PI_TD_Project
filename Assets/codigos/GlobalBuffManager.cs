@@ -23,19 +23,26 @@ public class GlobalBuffManager : MonoBehaviour
     public float knockback;
     public float dotDMG;
     public float dotDur;
+    public ItemBuff[] items;
 
-    public void pegarbuff(ItemBuff spritebuff)
+    public void pegarbuff(Sprite spritebuff)
     {
-        velAttk += spritebuff.velAttk;
-        Dano += spritebuff.Dano;
-        Range += spritebuff.Range;
-        critChance += spritebuff.critChance;
-        critDMG += spritebuff.critDMG;
-        pierce += spritebuff.pierce;
-        slow += spritebuff.slow;
-        knockback += spritebuff.knockback;
-        dotDMG += spritebuff.dotDMG;
-        dotDur += spritebuff.dotDur;
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (spritebuff == items[i].spriteitem) {
+                velAttk += items[i].velAttk;
+                Dano += items[i].Dano;
+                Range += items[i].Range;
+                critChance += items[i].critChance;
+                critDMG += items[i].critDMG;
+                pierce += items[i].pierce;
+                slow += items[i].slow;
+                knockback += items[i].knockback;
+                dotDMG += items[i].dotDMG;
+                dotDur += items[i].dotDur;
+            }
+        }
+        
     }
 
 
