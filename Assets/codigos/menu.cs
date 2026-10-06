@@ -216,6 +216,6 @@ public class menu : MonoBehaviour
     public void mostradesc(int pos)
     {
         tituloitem.SetText(slots[pos].sprite.name);
-        descitem.SetText(descriprion(slots[pos].sprite))
+        descitem.SetText(GlobalBuffManager.main.description(slots[pos].sprite));
     }
 }
