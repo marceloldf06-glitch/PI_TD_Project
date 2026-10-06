@@ -25,7 +25,13 @@ public class Bala : MonoBehaviour
 
     public void PegarValorDano (int _dano)
     {
-        DanoDaBala = _dano;
+        if (_dano <= 0)
+        {
+            DanoDaBala = 1;
+        }
+        else { 
+            DanoDaBala = _dano;
+        }
     }
 
     public void pegarPierce(int _pierce)

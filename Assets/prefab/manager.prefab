@@ -140,3 +140,37 @@ MonoBehaviour:
   knockback: 0
   dotDMG: 0
   dotDur: 0
+  items:
+  - spriteitem: {fileID: 1333360212207933260, guid: ca3843657c34ee841aeaa67bf9abc20e, type: 3}
+    velAttk: 100
+    Dano: 100
+    Range: 0
+    critChance: 0
+    critDMG: 0
+    pierce: 0
+    slow: 0
+    knockback: 0
+    dotDMG: 0
+    dotDur: 0
+  - spriteitem: {fileID: 7475662491167044047, guid: 78d89fb0bec54df42ae95192620a2053, type: 3}
+    velAttk: 0
+    Dano: 0
+    Range: 1000
+    critChance: 0
+    critDMG: 0
+    pierce: 0
+    slow: 0
+    knockback: 0
+    dotDMG: 0
+    dotDur: 0
+  - spriteitem: {fileID: -3558132910766475638, guid: 8803ee6dc9346bd4196be445f954e9d7, type: 3}
+    velAttk: 0
+    Dano: 0
+    Range: 0
+    critChance: 0
+    critDMG: 0
+    pierce: 10
+    slow: 0
+    knockback: 0
+    dotDMG: 0
+    dotDur: 0

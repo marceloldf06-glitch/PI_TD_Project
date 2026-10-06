@@ -215,7 +215,17 @@ public class menu : MonoBehaviour
     }
     public void mostradesc(int pos)
     {
-        tituloitem.SetText(slots[pos].sprite.name);
-        descitem.SetText(GlobalBuffManager.main.description(slots[pos].sprite));
+        if (slots[pos].sprite.name == "botão pequeno_0")
+        {
+            tituloitem.SetText("");
+            descitem.SetText("");
+        }
+        else
+        {
+
+
+            tituloitem.SetText(slots[pos].sprite.name);
+            descitem.SetText(GlobalBuffManager.main.description(slots[pos].sprite));
+        }
     }
 }
