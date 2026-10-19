@@ -10,7 +10,7 @@ public class Chao : MonoBehaviour
     [SerializeField] private Color corVenda;
 
     private GameObject torreObj;
-    public Torreta torreta;
+    private Torreta torreta;
     private Color corinicial;
     // Start is called before the first frame update
     void Start()

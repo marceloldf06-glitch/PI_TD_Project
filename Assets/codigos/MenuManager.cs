@@ -6,23 +6,25 @@ public class MenuManager : MonoBehaviour
 {
 
     public static MenuManager main;
-
+    private Animator animmenup;
     private void Awake()
     {
         main = this;
     }
-    [SerializeField] Menus[] menus;
-    private int menuselecionado = 0;
+    [SerializeField] Menus menus;
 
 
     public Menus GetMenuSelecionado()
     {
-        return menus[menuselecionado];
+        return menus;
     }
-
-    public void setarTorre(int _menuSelecionado)
+    public void SetAnimator(Animator _anime)
     {
-        menuselecionado = _menuSelecionado;
+        animmenup = _anime;
+    }
+    public Animator GetAnimator()
+    {
+        return animmenup;
     }
     // Start is called before the first frame update
     void Start()

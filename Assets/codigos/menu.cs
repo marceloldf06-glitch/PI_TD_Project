@@ -15,6 +15,7 @@ public class menu : MonoBehaviour
     [SerializeField] TextMeshProUGUI waveUI;
     [SerializeField] TextMeshProUGUI velUI;
     [SerializeField] Animator Anim;
+    [SerializeField] Animator Animup;
     [Header("Chest")]
     [SerializeField] TextMeshProUGUI ChestUI;
     [SerializeField] GameObject chestGambler;
@@ -39,6 +40,7 @@ public class menu : MonoBehaviour
     private int slot = 0;
     private bool invf = false;
     private bool temitem = true;
+
     
 
     public void AcinonarMenu()
@@ -98,6 +100,7 @@ public class menu : MonoBehaviour
         i3.sprite = items[0];
         chestGambler.SetActive(chestMenuAberto);
         Inventory.SetActive(chestMenuAberto);
+        MenuManager.main.SetAnimator(Animup);
     }
 
     // Update is called once per frame

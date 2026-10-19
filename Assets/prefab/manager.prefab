@@ -110,14 +110,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menus:
-  - upgradeUI: {fileID: 0}
+    upgradeUI: {fileID: 0}
     upgradeBTN: {fileID: 0}
-    CompraUI: {fileID: 0}
     upgradeTXT: {fileID: 0}
-  - upgradeUI: {fileID: 0}
-    upgradeBTN: {fileID: 0}
-    CompraUI: {fileID: 0}
-    upgradeTXT: {fileID: 0}
+    CompraTXT: {fileID: 0}
+    statuspanel: {fileID: 0}
+    nome: {fileID: 0}
+    vender: {fileID: 0}
+    imagem: {fileID: 0}
 --- !u!114 &8643321432492217860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +165,7 @@ MonoBehaviour:
     dotDur: 0
   - spriteitem: {fileID: -3558132910766475638, guid: 8803ee6dc9346bd4196be445f954e9d7, type: 3}
     velAttk: 0
-    Dano: 0
+    Dano: -10
     Range: 0
     critChance: 0
     critDMG: 0

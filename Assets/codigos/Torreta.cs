@@ -16,7 +16,6 @@ public class Torreta : MonoBehaviour
 
     [Header("Atributos")]
     [SerializeField] private TorretaStatus[] Levels;
-    
     [SerializeField] private float velRotacao = 5f;
 
 
@@ -42,6 +41,11 @@ public class Torreta : MonoBehaviour
     private float cooldown;
     private float cooldownB;
     private int lvl = 0;
+    private bool upab = true;
+
+    private Animator Animup;
+
+
 
     private TorretaStatus level(int lvl)
     {
@@ -50,15 +54,13 @@ public class Torreta : MonoBehaviour
 
     void Start()
     {
+        Animup = MenuManager.main.GetAnimator();
         BalasPorSec = level(lvl).velAttk + GlobalBuffManager.main.velAttk;
         Range = level(lvl).Range + GlobalBuffManager.main.Range;
         Dano = level(lvl).Dano + GlobalBuffManager.main.Dano;
         Menus menuAUsar = MenuManager.main.GetMenuSelecionado();
-        upgradeUI = menuAUsar.upgradeUI;
         upgradeTXT = menuAUsar.upgradeTXT;
-        EscolherUI = menuAUsar.CompraUI;
         botaoUpgrade = menuAUsar.upgradeBTN;
-        AtivarUIUpgrade();
         botaoUpgrade.onClick.AddListener(Upgrade);
         upgradeTXT.SetText("Upgrade : " + level(lvl).Preco);
     }
@@ -139,15 +141,30 @@ public class Torreta : MonoBehaviour
 
     public void AtivarUIUpgrade()
     {
-        upgradeUI.SetActive(true);
-        EscolherUI.SetActive(false);
+        Animup.SetBool("MenuUpAbre", true);
     }
     public void DesativarUpgradeUI()
     {
-        upgradeUI.SetActive(false);
+        Animup.SetBool("MenuUpAbre", false);
+    }
+    public void OnMouseDown()
+    {
+        if (upab)
+        {
+            AtivarUIUpgrade();
+            upab = false;
+        }
+        else
+        {
+            DesativarUpgradeUI();
+            upab=true;
+        }
+    }
+    public void vender()
+    {
+        lvl = 0;
         EscolherUI.SetActive(true);
     }
-   
     public void Upgrade()
     {
         if (level(lvl).Preco > manager.main.moedas) return;
