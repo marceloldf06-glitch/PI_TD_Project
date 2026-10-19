@@ -14,7 +14,7 @@ public class Menus
     public Button vender;
     public Image imagem;
 
-    public Menus(GameObject _upgradeUI, Button _upgradeBTN, GameObject _CompraUI, TextMeshProUGUI _upgradeTXT, TextMeshProUGUI _compraTXT,TextMeshProUGUI _statuspanel, TextMeshProUGUI _nome, Button _vender, Image _imagen)
+    public Menus(GameObject _upgradeUI, Button _upgradeBTN, GameObject _CompraUI, TextMeshProUGUI _upgradeTXT, TextMeshProUGUI _compraTXT,TextMeshProUGUI _statuspanel, TextMeshProUGUI _nome, Button _vender, Sprite _imagen)
     {
         upgradeUI = _upgradeUI;
         upgradeBTN = _upgradeBTN;
