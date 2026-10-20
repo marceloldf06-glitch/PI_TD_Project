@@ -162,6 +162,9 @@ MonoBehaviour:
     dotDMG: 10
     dotDur: 2
   velRotacao: 200
+  imgperso: {fileID: 1333360212207933260, guid: ca3843657c34ee841aeaa67bf9abc20e, type: 3}
+  nome: Serena
+  EscolherUI: {fileID: 0}
 --- !u!61 &7794826451414741407
 BoxCollider2D:
   m_ObjectHideFlags: 0

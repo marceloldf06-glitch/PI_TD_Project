@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -25,7 +26,6 @@ public class GlobalBuffManager : MonoBehaviour
     public float dotDMG;
     public float dotDur;
     public ItemBuff[] items;
-    private string desc;
 
     public void pegarbuff(Sprite sprite_buff)
     {
@@ -48,6 +48,7 @@ public class GlobalBuffManager : MonoBehaviour
     }
     public string description(Sprite sprite_item)
     {
+        String desc;
         desc = "Atributos:";
         for (int i = 0; i < items.Length; i++)
         {

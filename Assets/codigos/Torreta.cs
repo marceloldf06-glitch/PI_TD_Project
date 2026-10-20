@@ -1,10 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
-using TMPro;
-using System.Globalization;
 
 public class Torreta : MonoBehaviour
 {
@@ -32,6 +36,12 @@ public class Torreta : MonoBehaviour
     private int precoUpgradeBase;
     private float Range;
     private float crtc;
+    private float crtdmg;
+    private int pierce;
+    private int slow;
+    private float dotDMG;
+    private float dotDur;
+    private float knockback;
 
     private Button botaoUpgrade;
     private GameObject upgradeUI;
@@ -47,7 +57,7 @@ public class Torreta : MonoBehaviour
     private float cooldownB;
     private int lvl = 0;
     private bool upab = true;
-
+    private int moneygasto;
     private Animator Animup;
 
 
@@ -71,7 +81,7 @@ public class Torreta : MonoBehaviour
         botaoUpgrade.onClick.AddListener(Upgrade);
         upgradeTXT.SetText("Upgrade : " + level(lvl+1).Preco);
         botaovender.onClick.AddListener(vender);
-        
+        menuAUsar.imagem.sprite = imgperso;
     }
 
     // Update is called once per frame
@@ -80,6 +90,34 @@ public class Torreta : MonoBehaviour
         BalasPorSec = level(lvl).velAttk + GlobalBuffManager.main.velAttk;
         Range = level(lvl).Range + GlobalBuffManager.main.Range;
         Dano = level(lvl).Dano + GlobalBuffManager.main.Dano;
+        crtc = level(lvl).critChance + GlobalBuffManager.main.critChance;
+        crtdmg = level(lvl).critDMG + GlobalBuffManager.main.critDMG;
+        pierce = level(lvl).pierce + GlobalBuffManager.main.pierce;
+        if(pierce < 0)
+        {
+            pierce = 0;
+        }
+        slow = level(lvl).slow + GlobalBuffManager.main.slow;
+        if (slow < 0)
+        {
+            slow = 0;
+        }
+        dotDur = level(lvl).dotDur + GlobalBuffManager.main.dotDur;
+        if (dotDur < 0)
+        {
+            dotDur = 0;
+        }
+        dotDMG = level(lvl).dotDMG + GlobalBuffManager.main.dotDMG;
+        knockback = level(lvl).knockback + GlobalBuffManager.main.knockback;
+        if (knockback < 0)
+        {
+            knockback = 0;
+        }
+
+        if (crtdmg < 1.5)
+        {
+            crtdmg = 1.5f;
+        }
         if (Alvo == null)
         {
             AcharAlvo();
@@ -101,26 +139,27 @@ public class Torreta : MonoBehaviour
             
             
         }
+        attupdstatus();
     }
     private void Atirar()
     {
-        crtc = level(lvl).critChance + GlobalBuffManager.main.critChance;
+        
         GameObject balaobj = Instantiate(PrefabBala, PontaDaArma.position, Quaternion.identity);
         Bala balacodigo = balaobj.GetComponent<Bala>();
         balacodigo.MarcarAlvo(Alvo);
-        int crit = Random.Range(1, 100);
+        int crit = UnityEngine.Random.Range(1, 100);
         if (crit >= (100 - crtc))
         {
-            balacodigo.PegarValorDano(Mathf.RoundToInt((Dano * (level(lvl).critDMG + GlobalBuffManager.main.critDMG))));
+            balacodigo.PegarValorDano(Mathf.RoundToInt(Dano * crtdmg));
         }
         else
         {
-            balacodigo.PegarValorDano(Mathf.RoundToInt(Dano ));
+            balacodigo.PegarValorDano(Mathf.RoundToInt(Dano));
         }
-        balacodigo.pegarPierce(level(lvl).pierce + GlobalBuffManager.main.pierce);
-        balacodigo.pegarSlow(level(lvl).slow + GlobalBuffManager.main.slow);
-        balacodigo.pegardot(level(lvl).dotDMG + GlobalBuffManager.main.dotDMG, level(lvl).dotDur + GlobalBuffManager.main.dotDur);
-        balacodigo.pegarback(level(lvl).knockback + GlobalBuffManager.main.knockback);
+        balacodigo.pegarPierce(pierce);
+        balacodigo.pegarSlow(slow);
+        balacodigo.pegardot(dotDMG, dotDur);
+        balacodigo.pegarback(knockback);
         Alvo = null;
     }
     private void AcharAlvo()
@@ -173,12 +212,21 @@ public class Torreta : MonoBehaviour
     }
     public void vender()
     {
-        lvl = 0; 
-        GameObject.Destroy(gameObject);
         int dinheirovenda;
-        dinheirovenda = 1;
-        manager.main.ganharDinheiro(dinheirovenda);
+        dinheirovenda = dinheirogasto();
+        manager.main.ganharDinheiro((int)dinheirovenda);
+        lvl = 0;
         DesativarUpgradeUI();
+        GameObject.Destroy(gameObject);
+    }
+    public int dinheirogasto()
+    {
+        
+        for (int i = 0; i <= lvl; i++)
+        {
+            moneygasto += (int)level(lvl).Preco;
+        } 
+        return Mathf.RoundToInt(moneygasto);
     }
     public void Upgrade()
     {
@@ -201,6 +249,43 @@ public class Torreta : MonoBehaviour
     }
     public void attupdstatus()
     {
-        status.SetText("Dano:" + Dano + "\nRange" + Range + "\nVelocidade de Ataque" + BalasPorSec);
+        Menus menuAUsar = MenuManager.main.GetMenuSelecionado();
+        
+        menuAUsar.imagem.sprite = imgperso;
+        String desc = "";
+                    desc += "\nVelocidade de ataque: " + BalasPorSec;
+                    desc += "\nDano: " + Dano;
+                    desc += "\nRange: " + Range;
+                
+                if (crtc > 0)
+                {
+                    desc += "\nChance critica: " + crtc;
+                }
+                if (crtc > 0)
+                {
+                    desc += "\nDano critico: " + crtdmg;
+                }
+                if (pierce > 0)
+                {
+                    desc += "\nPerfuração: " + pierce;
+                }
+                if (slow > 0)
+                {
+                    desc += "\nDesaceleração: " + slow;
+                }
+                if (knockback > 0)
+                {
+                    desc += "\nKnockback: " + knockback;
+                }
+                if (dotDMG > 0)
+                {
+                    desc += "\nDano extra do dot: " + dotDMG;
+                }
+                if (dotDur > 0)
+                {
+                    desc += "\nDuração extra do dot: " + dotDur;
+                }
+            
+        status.SetText(desc);
     }
 }
