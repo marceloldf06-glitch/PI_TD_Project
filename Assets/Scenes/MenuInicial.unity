@@ -1265,6 +1265,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 47882c5e87c933f468029dc8dd86b55d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6282798082831993551, guid: 5e666ecacfa683b4193d5d60bf50f01e, type: 3}
     - target: {fileID: 7878350319992209165, guid: 47882c5e87c933f468029dc8dd86b55d, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.9259636
@@ -1279,7 +1283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 47882c5e87c933f468029dc8dd86b55d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -545
+      value: -540
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 47882c5e87c933f468029dc8dd86b55d, type: 3}
       propertyPath: m_LocalPosition.z

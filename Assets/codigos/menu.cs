@@ -197,7 +197,7 @@ public class menu : MonoBehaviour
             i2.sprite = items[0];
             i3.sprite = items[0];
             slot++;
-
+           
         }
     }
     public void abInv()

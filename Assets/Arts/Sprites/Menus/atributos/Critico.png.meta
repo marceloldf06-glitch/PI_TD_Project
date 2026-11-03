@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Critico_0: -6924719468048640589
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

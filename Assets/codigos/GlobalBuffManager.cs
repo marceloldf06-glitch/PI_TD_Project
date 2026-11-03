@@ -56,43 +56,43 @@ public class GlobalBuffManager : MonoBehaviour
             {
                 if(items[i].velAttk > 0 || items[i].velAttk < 0)
                 {
-                    desc += "\nVelocidade de ataque: " + items[i].velAttk;
+                    desc += "\n<sprite=0>: " + items[i].velAttk;
                 }
                 if (items[i].Dano > 0 || items[i].Dano < 0)
                 {
-                    desc += "\nDano: " + items[i].Dano;
+                    desc += "\n<sprite=7>: " + items[i].Dano;
                 }
                 if (items[i].Range > 0 || items[i].Range < 0)
                 {
-                    desc += "\nRange: " + items[i].Range;
+                    desc += "\n<sprite=8>: " + items[i].Range;
                 }
                 if (items[i].critChance > 0 || items[i].critChance < 0)
                 {
-                    desc += "\nChance critica: " + items[i].critChance;
+                    desc += "\n<sprite=6>: " + items[i].critChance;
                 }
                 if (items[i].critDMG > 0 || items[i].critDMG < 0)
                 {
-                    desc += "\nDano critico: " + items[i].critDMG;
+                    desc += "\n<sprite=5>: " + items[i].critDMG;
                 }
                 if (items[i].pierce > 0 || items[i].pierce < 0)
                 {
-                    desc += "\nPerfuração: " + items[i].pierce;
+                    desc += "\n<sprite=8>: " + items[i].pierce;
                 }
                 if (items[i].slow > 0 || items[i].slow < 0)
                 {
-                    desc += "\nDesaceleração: " + items[i].slow;
+                    desc += "\n<sprite=1>: " + items[i].slow;
                 }
                 if (items[i].knockback > 0 || items[i].knockback < 0)
                 {
-                    desc += "\nKnockback: " + items[i].knockback;
+                    desc += "\n<sprite=2>: " + items[i].knockback;
                 }
                 if (items[i].dotDMG > 0 || items[i].dotDMG < 0)
                 {
-                    desc += "\nDano extra do dot: " + items[i].dotDMG;
+                    desc += "\n<sprite=3>: " + items[i].dotDMG;
                 }
                 if (items[i].dotDur > 0 || items[i].dotDur < 0)
                 {
-                    desc += "\nDuração extra do dot: " + items[i].dotDur;
+                    desc += "\n<sprite=4>: " + items[i].dotDur;
                 }
             }
         }

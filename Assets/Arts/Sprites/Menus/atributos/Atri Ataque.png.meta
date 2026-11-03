@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Atri Ataque_0: -1916220488930414948
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

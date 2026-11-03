@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -56,11 +57,10 @@ public class Torreta : MonoBehaviour
     private float cooldown;
     private float cooldownB;
     private int lvl = 0;
-    private bool upab = true;
     private int moneygasto;
     private Animator Animup;
-
-
+    Menus menuAUsar;
+    private bool resetado = true;
 
     private TorretaStatus level(int lvl)
     {
@@ -69,55 +69,28 @@ public class Torreta : MonoBehaviour
 
     void Start()
     {
+        menuAUsar = MenuManager.main.GetMenuSelecionado();
         Animup = MenuManager.main.GetAnimator();
-        BalasPorSec = level(lvl).velAttk + GlobalBuffManager.main.velAttk;
-        Range = level(lvl).Range + GlobalBuffManager.main.Range;
-        Dano = level(lvl).Dano + GlobalBuffManager.main.Dano;
-        Menus menuAUsar = MenuManager.main.GetMenuSelecionado();
-        upgradeTXT = menuAUsar.upgradeTXT;
-        botaoUpgrade = menuAUsar.upgradeBTN;
-        botaovender = menuAUsar.vender;
-        status = menuAUsar.statuspanel;
-        botaoUpgrade.onClick.AddListener(Upgrade);
-        upgradeTXT.SetText("Upgrade : " + level(lvl+1).Preco);
-        botaovender.onClick.AddListener(vender);
-        menuAUsar.imagem.sprite = imgperso;
+        atualizarstatus();       
+        
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        BalasPorSec = level(lvl).velAttk + GlobalBuffManager.main.velAttk;
-        Range = level(lvl).Range + GlobalBuffManager.main.Range;
-        Dano = level(lvl).Dano + GlobalBuffManager.main.Dano;
-        crtc = level(lvl).critChance + GlobalBuffManager.main.critChance;
-        crtdmg = level(lvl).critDMG + GlobalBuffManager.main.critDMG;
-        pierce = level(lvl).pierce + GlobalBuffManager.main.pierce;
-        if(pierce < 0)
+        if(!menuAUsar.nome.text.Equals(nome) && !menuAUsar.nome.text.Equals("Nome") && !resetado)
         {
-            pierce = 0;
+            upgradeTXT = null;
+            botaoUpgrade = null;
+            botaovender = null;
+            status = null;
+            botaoUpgrade.onClick.RemoveListener(Upgrade);
+            botaovender.onClick.RemoveListener(vender); 
+            resetado = true;
         }
-        slow = level(lvl).slow + GlobalBuffManager.main.slow;
-        if (slow < 0)
-        {
-            slow = 0;
-        }
-        dotDur = level(lvl).dotDur + GlobalBuffManager.main.dotDur;
-        if (dotDur < 0)
-        {
-            dotDur = 0;
-        }
-        dotDMG = level(lvl).dotDMG + GlobalBuffManager.main.dotDMG;
-        knockback = level(lvl).knockback + GlobalBuffManager.main.knockback;
-        if (knockback < 0)
-        {
-            knockback = 0;
-        }
-
-        if (crtdmg < 1.5)
-        {
-            crtdmg = 1.5f;
-        }
+        Animup.SetBool("MenuUpAbre", MenuManager.main.upab);
+        atualizarstatus();
         if (Alvo == null)
         {
             AcharAlvo();
@@ -139,7 +112,7 @@ public class Torreta : MonoBehaviour
             
             
         }
-        attupdstatus();
+        
     }
     private void Atirar()
     {
@@ -187,27 +160,30 @@ public class Torreta : MonoBehaviour
         pontoDeRotacaoDaTorreta.rotation = Quaternion.RotateTowards(pontoDeRotacaoDaTorreta.rotation, RotacaoAlvo, velRotacao * Time.deltaTime);
     }
 
-    public void AtivarUIUpgrade()
+    public void switchupgrade()
     {
-        Animup.SetBool("MenuUpAbre", true);
-        upab = false;
-    }
-    public void DesativarUpgradeUI()
-    {
-        Animup.SetBool("MenuUpAbre", false);
-        upab = true;
+        
+        MenuManager.main.upab = !MenuManager.main.upab;
     }
     public void OnMouseDown()
     {
-        if (upab)
+        if (!MenuManager.main.upab)
         {
-            AtivarUIUpgrade();
+            switchupgrade();
             attupdstatus();
         }
         else
         {
-            DesativarUpgradeUI();
-            attupdstatus();
+            if (menuAUsar.nome.text.Equals(nome))
+            {
+                switchupgrade();
+                resetado = false;
+            }
+            else
+            {
+                attupdstatus();
+            }
+            
         }
     }
     public void vender()
@@ -216,7 +192,7 @@ public class Torreta : MonoBehaviour
         dinheirovenda = dinheirogasto();
         manager.main.ganharDinheiro((int)dinheirovenda);
         lvl = 0;
-        DesativarUpgradeUI();
+        MenuManager.main.upab = false;
         GameObject.Destroy(gameObject);
     }
     public int dinheirogasto()
@@ -230,6 +206,7 @@ public class Torreta : MonoBehaviour
     }
     public void Upgrade()
     {
+        if (upgradeTXT.text.Equals("Max Level")) return;
         if (level(lvl+1).Preco > manager.main.moedas) return;
         if (lvl >= (Levels.Length -1))
         {
@@ -237,6 +214,8 @@ public class Torreta : MonoBehaviour
         }
         manager.main.gastarDinheiro(Mathf.RoundToInt( level(lvl).Preco));
         lvl++;
+        atualizarstatus();
+        attupdstatus();
         if (lvl >= (Levels.Length - 1))
         {
             upgradeTXT.SetText("Max Level");
@@ -245,47 +224,90 @@ public class Torreta : MonoBehaviour
         {
             upgradeTXT.SetText("Upgrade : " + level(lvl).Preco);
         }
-        attupdstatus();
+        
     }
     public void attupdstatus()
     {
-        Menus menuAUsar = MenuManager.main.GetMenuSelecionado();
-        
+        upgradeTXT = menuAUsar.upgradeTXT;
+        botaoUpgrade = menuAUsar.upgradeBTN;
+        botaovender = menuAUsar.vender;
+        status = menuAUsar.statuspanel;
+        botaoUpgrade.onClick.AddListener(Upgrade);
+        botaovender.onClick.AddListener(vender);
+        if (lvl == 0)
+        {
+            upgradeTXT.SetText("Upgrade : " + level(lvl + 1).Preco);
+        }
+        menuAUsar.nome.SetText(nome);
         menuAUsar.imagem.sprite = imgperso;
         String desc = "";
-                    desc += "\nVelocidade de ataque: " + BalasPorSec;
-                    desc += "\nDano: " + Dano;
-                    desc += "\nRange: " + Range;
+                    desc += "\n<sprite=0>: " + BalasPorSec;
+                    desc += "\n<sprite=7>: " + Dano;
+                    desc += "\n<sprite=8>: " + Range;
                 
                 if (crtc > 0)
                 {
-                    desc += "\nChance critica: " + crtc;
+                    desc += "\n<sprite=6>: " + crtc;
                 }
-                if (crtc > 0)
+                if (crtdmg > 0)
                 {
-                    desc += "\nDano critico: " + crtdmg;
+                    desc += "\n<sprite=5>: " + crtdmg;
                 }
                 if (pierce > 0)
                 {
-                    desc += "\nPerfuração: " + pierce;
+                    desc += "\n<sprite=8>: " + pierce;
                 }
                 if (slow > 0)
                 {
-                    desc += "\nDesaceleração: " + slow;
+                    desc += "\n<sprite=1>: " + slow;
                 }
                 if (knockback > 0)
                 {
-                    desc += "\nKnockback: " + knockback;
+                    desc += "\n<sprite=2>: " + knockback;
                 }
                 if (dotDMG > 0)
                 {
-                    desc += "\nDano extra do dot: " + dotDMG;
+                    desc += "\n<sprite=3>: " + dotDMG;
                 }
                 if (dotDur > 0)
                 {
-                    desc += "\nDuração extra do dot: " + dotDur;
+                    desc += "\n<sprite=4>: " + dotDur;
                 }
             
         status.SetText(desc);
+    }
+    private void atualizarstatus()
+    {
+        BalasPorSec = level(lvl).velAttk + GlobalBuffManager.main.velAttk;
+        Range = level(lvl).Range + GlobalBuffManager.main.Range;
+        Dano = level(lvl).Dano + GlobalBuffManager.main.Dano;
+        crtc = level(lvl).critChance + GlobalBuffManager.main.critChance;
+        crtdmg = level(lvl).critDMG + GlobalBuffManager.main.critDMG;
+        pierce = level(lvl).pierce + GlobalBuffManager.main.pierce;
+        if (pierce < 0)
+        {
+            pierce = 0;
+        }
+        slow = level(lvl).slow + GlobalBuffManager.main.slow;
+        if (slow < 0)
+        {
+            slow = 0;
+        }
+        dotDur = level(lvl).dotDur + GlobalBuffManager.main.dotDur;
+        if (dotDur < 0)
+        {
+            dotDur = 0;
+        }
+        dotDMG = level(lvl).dotDMG + GlobalBuffManager.main.dotDMG;
+        knockback = level(lvl).knockback + GlobalBuffManager.main.knockback;
+        if (knockback < 0)
+        {
+            knockback = 0;
+        }
+
+        if (crtdmg < 1.5)
+        {
+            crtdmg = 1.5f;
+        }
     }
 }
