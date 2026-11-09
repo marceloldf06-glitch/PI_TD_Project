@@ -18,6 +18,7 @@ public class Torreta : MonoBehaviour
     [SerializeField] private LayerMask Emascara;
     [SerializeField] private GameObject PrefabBala;
     [SerializeField] private Transform PontaDaArma;
+    [SerializeField] private GameObject btnperso;
 
     [Header("Atributos")]
     [SerializeField] private TorretaStatus[] Levels;
@@ -26,6 +27,7 @@ public class Torreta : MonoBehaviour
     [Header("Dx td bunito")]
     [SerializeField] private Sprite imgperso;
     [SerializeField] private string nome;
+
 
 
 
@@ -46,7 +48,7 @@ public class Torreta : MonoBehaviour
 
     private Button botaoUpgrade;
     private GameObject upgradeUI;
-    public GameObject EscolherUI;
+    private GameObject EscolherUI;
     private TextMeshProUGUI upgradeTXT;
     private Button botaovender;
     private TextMeshProUGUI status;
@@ -59,8 +61,9 @@ public class Torreta : MonoBehaviour
     private int lvl = 0;
     private int moneygasto;
     private Animator Animup;
-    Menus menuAUsar;
-    private bool resetado = true;
+    private Menus menuAUsar;
+    private bool ativo = false;
+    
 
     private TorretaStatus level(int lvl)
     {
@@ -71,26 +74,44 @@ public class Torreta : MonoBehaviour
     {
         menuAUsar = MenuManager.main.GetMenuSelecionado();
         Animup = MenuManager.main.GetAnimator();
-        atualizarstatus();       
-        
-        
-    }
+        atualizarstatus();
 
+
+
+    }
+    private void FixedUpdate()
+    {
+        if (MenuManager.main.reset)
+        {
+            if (menuAUsar.nome.text.Equals(nome) )
+            {
+                if (ativo)
+                { return; }
+                else
+                {
+                    upgradeTXT = null;
+                    botaoUpgrade = null;
+                    botaovender = null;
+                    status = null;
+                    botaoUpgrade.onClick.RemoveAllListeners();
+                    botaovender.onClick.RemoveAllListeners();
+                    MenuManager.main.reset = false;
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+    }
     // Update is called once per frame
     void Update()
     {
-        if(!menuAUsar.nome.text.Equals(nome) && !menuAUsar.nome.text.Equals("Nome") && !resetado)
-        {
-            upgradeTXT = null;
-            botaoUpgrade = null;
-            botaovender = null;
-            status = null;
-            botaoUpgrade.onClick.RemoveListener(Upgrade);
-            botaovender.onClick.RemoveListener(vender); 
-            resetado = true;
-        }
-        Animup.SetBool("MenuUpAbre", MenuManager.main.upab);
         atualizarstatus();
+        
+        
+
+
         if (Alvo == null)
         {
             AcharAlvo();
@@ -162,25 +183,29 @@ public class Torreta : MonoBehaviour
 
     public void switchupgrade()
     {
-        
+        Animup.SetBool("MenuUpAbre", MenuManager.main.upab);
         MenuManager.main.upab = !MenuManager.main.upab;
+        
     }
     public void OnMouseDown()
     {
-        if (!MenuManager.main.upab)
+        if (MenuManager.main.upab)
         {
-            switchupgrade();
-            attupdstatus();
+        attupdstatus();
+        switchupgrade();
+            
+            
         }
         else
         {
             if (menuAUsar.nome.text.Equals(nome))
             {
                 switchupgrade();
-                resetado = false;
+                
             }
             else
             {
+                
                 attupdstatus();
             }
             
@@ -188,12 +213,15 @@ public class Torreta : MonoBehaviour
     }
     public void vender()
     {
-        int dinheirovenda;
-        dinheirovenda = dinheirogasto();
-        manager.main.ganharDinheiro((int)dinheirovenda);
-        lvl = 0;
-        MenuManager.main.upab = false;
-        GameObject.Destroy(gameObject);
+        if (menuAUsar.nome.text.Equals(nome))
+        {
+            int dinheirovenda;
+            dinheirovenda = dinheirogasto();
+            manager.main.ganharDinheiro((int)dinheirovenda);
+            lvl = 0;
+            MenuManager.main.upab = false;
+            GameObject.Destroy(gameObject);
+        }
     }
     public int dinheirogasto()
     {
@@ -206,76 +234,83 @@ public class Torreta : MonoBehaviour
     }
     public void Upgrade()
     {
-        if (upgradeTXT.text.Equals("Max Level")) return;
-        if (level(lvl+1).Preco > manager.main.moedas) return;
-        if (lvl >= (Levels.Length -1))
-        {
-            return;
+        if (menuAUsar.nome.text.Equals(nome)){
+            if (upgradeTXT.text.Equals("Max Level")) return;
+            if (level(lvl + 1).Preco > manager.main.moedas) return;
+            if (lvl >= (Levels.Length - 1))
+            {
+                return;
+            }
+            manager.main.gastarDinheiro(Mathf.RoundToInt(level(lvl).Preco));
+            lvl++;
+            atualizarstatus();
+            attupdstatus();
+            if (lvl >= (Levels.Length - 1))
+            {
+                upgradeTXT.SetText("Max Level");
+            }
+            else
+            {
+                upgradeTXT.SetText("Upgrade : " + level(lvl).Preco);
+            }
         }
-        manager.main.gastarDinheiro(Mathf.RoundToInt( level(lvl).Preco));
-        lvl++;
-        atualizarstatus();
-        attupdstatus();
-        if (lvl >= (Levels.Length - 1))
-        {
-            upgradeTXT.SetText("Max Level");
-        }
-        else
-        {
-            upgradeTXT.SetText("Upgrade : " + level(lvl).Preco);
-        }
-        
     }
     public void attupdstatus()
     {
-        upgradeTXT = menuAUsar.upgradeTXT;
-        botaoUpgrade = menuAUsar.upgradeBTN;
-        botaovender = menuAUsar.vender;
-        status = menuAUsar.statuspanel;
-        botaoUpgrade.onClick.AddListener(Upgrade);
-        botaovender.onClick.AddListener(vender);
-        if (lvl == 0)
-        {
-            upgradeTXT.SetText("Upgrade : " + level(lvl + 1).Preco);
+        MenuManager.main.reset = true;
+            for (float i = 0f; i <= 1f; i+= Time.deltaTime){}
+            ativo = true;
+            menuAUsar.nome.SetText(nome);
+            upgradeTXT = menuAUsar.upgradeTXT;
+            botaoUpgrade = menuAUsar.upgradeBTN;
+            botaovender = menuAUsar.vender;
+            status = menuAUsar.statuspanel;
+            botaoUpgrade.onClick.AddListener(Upgrade);
+            botaovender.onClick.AddListener(vender);
+            if (lvl == 0)
+            {
+                upgradeTXT.SetText("Upgrade : " + level(lvl + 1).Preco);
+            }
+
+            menuAUsar.imagem.sprite = imgperso;
+            String desc = "";
+            desc += "\n<sprite=0>: " + BalasPorSec;
+            desc += "\n<sprite=7>: " + Dano;
+            desc += "\n<sprite=8>: " + Range;
+
+            if (crtc > 0)
+            {
+                desc += "\n<sprite=6>: " + crtc;
+            }
+            if (crtdmg > 0)
+            {
+                desc += "\n<sprite=5>: " + crtdmg;
+            }
+            if (pierce > 0)
+            {
+                desc += "\n<sprite=8>: " + pierce;
+            }
+            if (slow > 0)
+            {
+                desc += "\n<sprite=1>: " + slow;
+            }
+            if (knockback > 0)
+            {
+                desc += "\n<sprite=2>: " + knockback;
+            }
+            if (dotDMG > 0)
+            {
+                desc += "\n<sprite=3>: " + dotDMG;
+            }
+            if (dotDur > 0)
+            {
+                desc += "\n<sprite=4>: " + dotDur;
+            }
+
+            status.SetText(desc);
         }
-        menuAUsar.nome.SetText(nome);
-        menuAUsar.imagem.sprite = imgperso;
-        String desc = "";
-                    desc += "\n<sprite=0>: " + BalasPorSec;
-                    desc += "\n<sprite=7>: " + Dano;
-                    desc += "\n<sprite=8>: " + Range;
-                
-                if (crtc > 0)
-                {
-                    desc += "\n<sprite=6>: " + crtc;
-                }
-                if (crtdmg > 0)
-                {
-                    desc += "\n<sprite=5>: " + crtdmg;
-                }
-                if (pierce > 0)
-                {
-                    desc += "\n<sprite=8>: " + pierce;
-                }
-                if (slow > 0)
-                {
-                    desc += "\n<sprite=1>: " + slow;
-                }
-                if (knockback > 0)
-                {
-                    desc += "\n<sprite=2>: " + knockback;
-                }
-                if (dotDMG > 0)
-                {
-                    desc += "\n<sprite=3>: " + dotDMG;
-                }
-                if (dotDur > 0)
-                {
-                    desc += "\n<sprite=4>: " + dotDur;
-                }
-            
-        status.SetText(desc);
-    }
+    
+    
     private void atualizarstatus()
     {
         BalasPorSec = level(lvl).velAttk + GlobalBuffManager.main.velAttk;

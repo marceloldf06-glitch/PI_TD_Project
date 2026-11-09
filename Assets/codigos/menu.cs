@@ -29,6 +29,7 @@ public class menu : MonoBehaviour
     [SerializeField] Image[] slots;
     [SerializeField] TextMeshProUGUI tituloitem;
     [SerializeField] TextMeshProUGUI descitem;
+  
     private bool menuAberto = true;
     private bool ispause;
     private float vel = 1;

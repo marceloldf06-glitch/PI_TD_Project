@@ -8,6 +8,7 @@ public class MenuManager : MonoBehaviour
     public static MenuManager main;
     private Animator animmenup;
     public bool upab = true;
+    public bool reset = true;
     private void Awake()
     {
         main = this;
