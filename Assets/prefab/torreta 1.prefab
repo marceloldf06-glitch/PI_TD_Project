@@ -138,6 +138,7 @@ MonoBehaviour:
     m_Bits: 64
   PrefabBala: {fileID: 6397345047072454464, guid: 1a83ef134a2468d4bbc98aff32d88443, type: 3}
   PontaDaArma: {fileID: 319454152465579316}
+  btnperso: {fileID: 0}
   Levels:
   - velAttk: 20
     Dano: 1
@@ -162,9 +163,9 @@ MonoBehaviour:
     dotDMG: 0
     dotDur: 0
   velRotacao: 200
+  numperso: 1
   imgperso: {fileID: 4620098299379775358, guid: 678f341576325bb48aa52f3acb3a7a3b, type: 3}
   nome: Reinhardt
-  EscolherUI: {fileID: 0}
 --- !u!61 &7955996251682878612
 BoxCollider2D:
   m_ObjectHideFlags: 0

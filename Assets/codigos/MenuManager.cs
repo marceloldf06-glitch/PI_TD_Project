@@ -9,6 +9,7 @@ public class MenuManager : MonoBehaviour
     private Animator animmenup;
     public bool upab = true;
     public bool reset = true;
+    public GameObject[] compraperso;
     private void Awake()
     {
         main = this;

@@ -376,6 +376,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5388333438479413880, guid: 8db92de965c5817498dde8d814f8ab51, type: 3}
   m_PrefabInstance: {fileID: 47229879}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &52580089 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7364703329314887057, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
+  m_PrefabInstance: {fileID: 457484741}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &55645496
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2655,6 +2660,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: BuildManager, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 4390768640812516013, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
+      propertyPath: m_Name
+      value: ProdutoObj (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 6594440992519796266, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -4770,6 +4779,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5388333438479413880, guid: 8db92de965c5817498dde8d814f8ab51, type: 3}
   m_PrefabInstance: {fileID: 768341817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &783503738 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4390768640812516013, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
+  m_PrefabInstance: {fileID: 457484741}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &783663974
 GameObject:
@@ -10144,6 +10158,18 @@ PrefabInstance:
       propertyPath: menus.statuspanel
       value: 
       objectReference: {fileID: 1584744048}
+    - target: {fileID: 3743619507379798028, guid: 028e7d93f03ff4e49b23af726c7cf47f, type: 3}
+      propertyPath: compraperso.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743619507379798028, guid: 028e7d93f03ff4e49b23af726c7cf47f, type: 3}
+      propertyPath: 'compraperso.Array.data[0]'
+      value: 
+      objectReference: {fileID: 52580089}
+    - target: {fileID: 3743619507379798028, guid: 028e7d93f03ff4e49b23af726c7cf47f, type: 3}
+      propertyPath: 'compraperso.Array.data[1]'
+      value: 
+      objectReference: {fileID: 783503738}
     - target: {fileID: 6170226263336285130, guid: 028e7d93f03ff4e49b23af726c7cf47f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.6677537

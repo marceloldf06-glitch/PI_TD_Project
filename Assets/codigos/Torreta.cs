@@ -23,6 +23,7 @@ public class Torreta : MonoBehaviour
     [Header("Atributos")]
     [SerializeField] private TorretaStatus[] Levels;
     [SerializeField] private float velRotacao = 5f;
+    [SerializeField] private int numperso;
 
     [Header("Dx td bunito")]
     [SerializeField] private Sprite imgperso;
@@ -72,6 +73,7 @@ public class Torreta : MonoBehaviour
 
     void Start()
     {
+        MenuManager.main.compraperso[numperso].SetActive(false);
         menuAUsar = MenuManager.main.GetMenuSelecionado();
         Animup = MenuManager.main.GetAnimator();
         atualizarstatus();
@@ -219,7 +221,9 @@ public class Torreta : MonoBehaviour
             dinheirovenda = dinheirogasto();
             manager.main.ganharDinheiro((int)dinheirovenda);
             lvl = 0;
+            MenuManager.main.compraperso[numperso].SetActive(true);
             MenuManager.main.upab = false;
+            menuAUsar.nome.SetText("Nome");
             GameObject.Destroy(gameObject);
         }
     }
