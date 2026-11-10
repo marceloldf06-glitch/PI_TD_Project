@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 
 public class ESpawner : MonoBehaviour
@@ -16,6 +18,7 @@ public class ESpawner : MonoBehaviour
     [SerializeField] private float TEntreWaves = 5f;
     [SerializeField] private float escalaDeDificuldade = 0.75f;
     [SerializeField] private float EporSegundoMax = 10f;
+    [SerializeField] private float wavemax = 10;
 
     [Header("Eventos")]
     public static UnityEvent emEDestruido = new UnityEvent();
@@ -40,6 +43,7 @@ public class ESpawner : MonoBehaviour
     }
     private void Update()
     {
+        
         if (!Spawnando) return;
         TDeisDoUltimoSpawn += Time.deltaTime; 
 
@@ -95,7 +99,15 @@ public class ESpawner : MonoBehaviour
     {
         Spawnando = false;
         TDeisDoUltimoSpawn = 0f;
-        StartCoroutine(comecarWave());
+        if (WaveAtual == wavemax)
+        {
+            fasesliberadas.Instance.completar();
+            SceneManager.LoadScene(1);
+        }
+        else
+        {
+            StartCoroutine(comecarWave());
+        }
     }
     private int EporWave()
     {
