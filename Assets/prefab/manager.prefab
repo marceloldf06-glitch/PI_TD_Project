@@ -109,11 +109,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 690cfecd07ff52a4fb85993a004002cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upab: 1
+  reset: 1
+  compraperso:
+  - {fileID: 0}
+  - {fileID: 0}
   menus:
     upgradeUI: {fileID: 0}
     upgradeBTN: {fileID: 0}
     upgradeTXT: {fileID: 0}
-    CompraTXT: {fileID: 0}
     statuspanel: {fileID: 0}
     nome: {fileID: 0}
     vender: {fileID: 0}

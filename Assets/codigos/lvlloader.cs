@@ -7,11 +7,11 @@ using UnityEngine.SceneManagement;
 public class lvlloader : MonoBehaviour
     
 {
-    [Header("referencia")]
-    [SerializeField] private int fase;
+    public int fase;
     
     private void OnMouseDown()
     {
+        if (fase == -1) return;
         SceneManager.LoadScene(fase);
     }
 }
