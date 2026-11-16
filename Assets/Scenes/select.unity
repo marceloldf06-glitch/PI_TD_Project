@@ -8029,6 +8029,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 7475662491167044047, guid: 78d89fb0bec54df42ae95192620a2053, type: 3}
+    - target: {fileID: 1569456461298785681, guid: 8db92de965c5817498dde8d814f8ab51, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1569456461298785681, guid: 8db92de965c5817498dde8d814f8ab51, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1569456461298785681, guid: 8db92de965c5817498dde8d814f8ab51, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1728018834424006038, guid: 8db92de965c5817498dde8d814f8ab51, type: 3}
       propertyPath: m_Size.x
       value: 0.25
@@ -9970,9 +9982,9 @@ MonoBehaviour:
   - {fileID: 29851845}
   - {fileID: 347142435}
   fasessprites:
+  - {fileID: -2451789532378836125, guid: ef3129ba3ca697142ae21224cff85028, type: 3}
   - {fileID: 7475662491167044047, guid: 78d89fb0bec54df42ae95192620a2053, type: 3}
-  - {fileID: 7475662491167044047, guid: 78d89fb0bec54df42ae95192620a2053, type: 3}
-  - {fileID: 7475662491167044047, guid: 78d89fb0bec54df42ae95192620a2053, type: 3}
+  - {fileID: -8019250383389428584, guid: badb07e8a05e2be4f85b69bef6126430, type: 3}
 --- !u!1001 &1882402631
 PrefabInstance:
   m_ObjectHideFlags: 0
