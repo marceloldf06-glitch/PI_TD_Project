@@ -222,7 +222,7 @@ public class Torreta : MonoBehaviour
             manager.main.ganharDinheiro((int)dinheirovenda);
             lvl = 0;
             MenuManager.main.compraperso[numperso].SetActive(true);
-            MenuManager.main.upab = false;
+            switchupgrade();
             menuAUsar.nome.SetText("Nome");
             GameObject.Destroy(gameObject);
         }

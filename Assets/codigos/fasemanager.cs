@@ -19,7 +19,7 @@ public class fasemanager : MonoBehaviour
             }
             else if(i == fase){
                 fases[i].GetComponent<SpriteRenderer>().sprite = fasessprites[1];
-                fases[i].GetComponent<lvlloader>().fase = this.fase +2;
+                fases[i].GetComponent<lvlloader>().fase = this.fase +3;
             }
             else if(i > fase)
             {
