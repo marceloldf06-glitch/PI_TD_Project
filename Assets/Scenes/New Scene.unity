@@ -10078,6 +10078,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1910818874488866973, guid: 028e7d93f03ff4e49b23af726c7cf47f, type: 3}
+      propertyPath: wavemax
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3284354409125325156, guid: 028e7d93f03ff4e49b23af726c7cf47f, type: 3}
       propertyPath: m_Name
       value: manager
