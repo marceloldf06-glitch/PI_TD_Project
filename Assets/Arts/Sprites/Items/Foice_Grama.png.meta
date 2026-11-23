@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Foice_Grama_0: 1611832525740674001
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

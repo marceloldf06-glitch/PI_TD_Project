@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Lamparina_0: 7662046888016633708
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

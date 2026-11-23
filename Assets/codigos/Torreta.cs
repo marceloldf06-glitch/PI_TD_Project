@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
+using System.Transactions;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -327,7 +328,7 @@ public class Torreta : MonoBehaviour
         {
             pierce = 0;
         }
-        slow = level(lvl).slow + GlobalBuffManager.main.slow;
+        slow = level(lvl).slow - GlobalBuffManager.main.slow;
         if (slow < 0)
         {
             slow = 0;

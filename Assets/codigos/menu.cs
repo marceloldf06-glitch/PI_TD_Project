@@ -168,18 +168,21 @@ public class menu : MonoBehaviour
                     slots[slot].sprite = i1.sprite;
                     GlobalBuffManager.main.pegarbuff(i1.sprite);
                     items.RemoveAt(r1);
+                    
                 }
                 else if (i == 2)
                 {
                     slots[slot].sprite = i2.sprite;
                     items.RemoveAt(r2);
                     GlobalBuffManager.main.pegarbuff(i2.sprite);
+                    
                 }
                 else if (i == 3)
                 {
                     slots[slot].sprite = i3.sprite;
                     items.RemoveAt(r3);
                     GlobalBuffManager.main.pegarbuff(i3.sprite);
+                    
                 }
                 if (items.Count == 1)
                 {
@@ -232,4 +235,5 @@ public class menu : MonoBehaviour
             descitem.SetText(GlobalBuffManager.main.description(slots[pos].sprite));
         }
     }
+    
 }
