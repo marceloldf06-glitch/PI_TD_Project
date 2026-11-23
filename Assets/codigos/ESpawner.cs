@@ -102,7 +102,7 @@ public class ESpawner : MonoBehaviour
         if (WaveAtual == wavemax)
         {
             fasesliberadas.Instance.completar();
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
         else
         {
