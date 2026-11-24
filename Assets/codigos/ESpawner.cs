@@ -63,6 +63,7 @@ public class ESpawner : MonoBehaviour
         if (wc == Mathf.RoundToInt(wc) && w5)
         {
             manager.main.baus++;
+            escalaDeDificuldade += 0.2f;
             w5 = false;
         }
 

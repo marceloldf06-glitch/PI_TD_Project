@@ -24,6 +24,8 @@ public class menu : MonoBehaviour
     [SerializeField] Image i2;
     [SerializeField] Image i3;
     [SerializeField] TextMeshProUGUI botaochest;
+    [SerializeField] TextMeshProUGUI valorBau;
+    [SerializeField] int valorinibau;
     [Header("Inv")]
     [SerializeField] GameObject Inventory;
     [SerializeField] Image[] slots;
@@ -41,7 +43,7 @@ public class menu : MonoBehaviour
     private int slot = 0;
     private bool invf = false;
     private bool temitem = true;
-
+    private int valoratualbau;
     
 
     public void AcinonarMenu()
@@ -51,10 +53,12 @@ public class menu : MonoBehaviour
     }
     private void OnGUI()
     {
+       
        moedasUI.text = manager.main.moedas.ToString();
        vidaUI.text = manager.main.vida.ToString();
        waveUI.text = ESpawner.WaveAtual.ToString();
        ChestUI.text = manager.main.baus.ToString();
+       
     }
 
     public void pausar()
@@ -95,6 +99,8 @@ public class menu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        valoratualbau = valorinibau;
+        valorBau.text = "Preco : " + valoratualbau.ToString();
         Time.timeScale = vel;
         i1.sprite = items[0];
         i2.sprite = items[0];
@@ -235,5 +241,19 @@ public class menu : MonoBehaviour
             descitem.SetText(GlobalBuffManager.main.description(slots[pos].sprite));
         }
     }
-    
+    public void comprabau()
+    {
+        if (!botaochest.text.Equals("Acabou os items") && !botaochest.text.Equals("Inventario Cheio")) {
+            if (valoratualbau >= manager.main.moedas)
+            {
+                manager.main.baus++;
+                if (valoratualbau < 2000)
+                {
+                    valoratualbau += 250;
+                }
+                valorBau.text = "Preco : " + valoratualbau.ToString();
+            }
+        }
+    }
+
 }

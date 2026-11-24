@@ -2638,25 +2638,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7709840894856608412}
     - target: {fileID: 6606274835670704170, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
-      propertyPath: items.Array.size
-      value: 12
+      propertyPath: valorinibau
+      value: 750
       objectReference: {fileID: 0}
-    - target: {fileID: 6606274835670704170, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
-      propertyPath: 'items.Array.data[8]'
-      value: 
-      objectReference: {fileID: 4935404721241821605, guid: 1d729df15dbe72041986794f6691f4b3, type: 3}
-    - target: {fileID: 6606274835670704170, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
-      propertyPath: 'items.Array.data[9]'
-      value: 
-      objectReference: {fileID: 5561527620949110197, guid: e9deac4d086b4c847b62bcf82bfb0457, type: 3}
-    - target: {fileID: 6606274835670704170, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
-      propertyPath: 'items.Array.data[10]'
-      value: 
-      objectReference: {fileID: -7468185602417514453, guid: 10438924614797642a925bdf65b5a6bc, type: 3}
-    - target: {fileID: 6606274835670704170, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
-      propertyPath: 'items.Array.data[11]'
-      value: 
-      objectReference: {fileID: 2045492094208909694, guid: 85b7d074493d7fb41a51b9b94acb12c8, type: 3}
+    - target: {fileID: 7796979207740178868, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: comprabau
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410819548179749315, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8628628535315027462, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2740,14 +2732,6 @@ PrefabInstance:
     - target: {fileID: 8771371699816016649, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 9131300596796752958, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
-      propertyPath: m_fontSize
-      value: 57.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 9131300596796752958, guid: 333742b7d59efdc45913bbcf3797cd38, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10123,6 +10107,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1910818874488866973, guid: 028e7d93f03ff4e49b23af726c7cf47f, type: 3}
+      propertyPath: escalaDeDificuldade
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3284354409125325156, guid: 028e7d93f03ff4e49b23af726c7cf47f, type: 3}
       propertyPath: m_Name
       value: manager

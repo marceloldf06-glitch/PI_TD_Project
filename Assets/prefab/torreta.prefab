@@ -154,7 +154,7 @@ MonoBehaviour:
   - velAttk: 1.4
     Dano: 10
     Range: 2.5
-    Preco: 50
+    Preco: 100
     critChance: 5
     critDMG: 2
     pierce: 0
@@ -165,7 +165,7 @@ MonoBehaviour:
   - velAttk: 1.4
     Dano: 10
     Range: 3
-    Preco: 50
+    Preco: 300
     critChance: 5
     critDMG: 2
     pierce: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
   - velAttk: 1.4
     Dano: 12
     Range: 3
-    Preco: 50
+    Preco: 800
     critChance: 10
     critDMG: 2
     pierce: 0
@@ -188,6 +188,7 @@ MonoBehaviour:
   numperso: 0
   imgperso: {fileID: 1333360212207933260, guid: ca3843657c34ee841aeaa67bf9abc20e, type: 3}
   nome: Serena
+  lvl: 0
 --- !u!61 &7794826451414741407
 BoxCollider2D:
   m_ObjectHideFlags: 0
