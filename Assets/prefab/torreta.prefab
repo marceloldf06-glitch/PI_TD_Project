@@ -138,33 +138,56 @@ MonoBehaviour:
     m_Bits: 64
   PrefabBala: {fileID: 6397345047072454464, guid: 1a83ef134a2468d4bbc98aff32d88443, type: 3}
   PontaDaArma: {fileID: 319454152465579316}
+  btnperso: {fileID: 0}
   Levels:
-  - velAttk: 1
-    Dano: 20
-    Range: 3
+  - velAttk: 1.4
+    Dano: 10
+    Range: 2
     Preco: 50
-    critChance: 100
-    critDMG: 5
+    critChance: 5
+    critDMG: 2
     pierce: 0
     slow: 0
-    knockback: 1
+    knockback: 0
     dotDMG: 0
     dotDur: 0
-  - velAttk: 2
-    Dano: 6
-    Range: 7
-    Preco: 100
-    critChance: 0
-    critDMG: 0
-    pierce: 3
+  - velAttk: 1.4
+    Dano: 10
+    Range: 2.5
+    Preco: 50
+    critChance: 5
+    critDMG: 2
+    pierce: 0
     slow: 0
     knockback: 0
-    dotDMG: 10
-    dotDur: 2
+    dotDMG: 0
+    dotDur: 0
+  - velAttk: 1.4
+    Dano: 10
+    Range: 3
+    Preco: 50
+    critChance: 5
+    critDMG: 2
+    pierce: 0
+    slow: 75
+    knockback: 0
+    dotDMG: 0
+    dotDur: 0
+  - velAttk: 1.4
+    Dano: 12
+    Range: 3
+    Preco: 50
+    critChance: 10
+    critDMG: 2
+    pierce: 0
+    slow: 75
+    knockback: 0
+    dotDMG: 0
+    dotDur: 0
   velRotacao: 200
+  numperso: 0
   imgperso: {fileID: 1333360212207933260, guid: ca3843657c34ee841aeaa67bf9abc20e, type: 3}
   nome: Serena
-  EscolherUI: {fileID: 0}
 --- !u!61 &7794826451414741407
 BoxCollider2D:
   m_ObjectHideFlags: 0

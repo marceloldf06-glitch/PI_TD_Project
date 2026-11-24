@@ -140,28 +140,50 @@ MonoBehaviour:
   PontaDaArma: {fileID: 319454152465579316}
   btnperso: {fileID: 0}
   Levels:
-  - velAttk: 20
-    Dano: 1
-    Range: 10000
+  - velAttk: 0.7
+    Dano: 4
+    Range: 3
     Preco: 100
-    critChance: 25
-    critDMG: 100
-    pierce: 100
-    slow: 50
-    knockback: 0
-    dotDMG: 1
-    dotDur: 100
-  - velAttk: 1
-    Dano: 100
-    Range: 100
-    Preco: 200
-    critChance: 15
-    critDMG: 10000
+    critChance: 100
+    critDMG: 3
     pierce: 0
     slow: 0
     knockback: 0
-    dotDMG: 0
-    dotDur: 0
+    dotDMG: 2
+    dotDur: 1.5
+  - velAttk: 0.7
+    Dano: 4
+    Range: 3
+    Preco: 200
+    critChance: 100
+    critDMG: 3
+    pierce: 0
+    slow: 75
+    knockback: 0
+    dotDMG: 2
+    dotDur: 1.5
+  - velAttk: 1.2
+    Dano: 6
+    Range: 4.5
+    Preco: 1000
+    critChance: 100
+    critDMG: 4
+    pierce: 0
+    slow: 75
+    knockback: 0
+    dotDMG: 2
+    dotDur: 1.5
+  - velAttk: 1.2
+    Dano: 6
+    Range: 4.5
+    Preco: 2000
+    critChance: 100
+    critDMG: 4
+    pierce: 0
+    slow: 50
+    knockback: 1
+    dotDMG: 2
+    dotDur: 1.5
   velRotacao: 200
   numperso: 1
   imgperso: {fileID: 4620098299379775358, guid: 678f341576325bb48aa52f3acb3a7a3b, type: 3}

@@ -81,7 +81,7 @@ public class ESpawner : MonoBehaviour
         Inimigo inimigo = Espawnado.GetComponent<Inimigo>();
 
         inimigo.SetHP(inimigo.GetHp() + (1 * Mathf.Pow(WaveAtual, escalaDeDificuldade)));
-        inimigo.SetvaleQuanto(inimigo.GetvaleQuanto() * Mathf.Pow(WaveAtual, escalaDeDificuldade));
+        inimigo.SetvaleQuanto(inimigo.GetvaleQuanto() + (5*(WaveAtual-1)));
 
         
     }

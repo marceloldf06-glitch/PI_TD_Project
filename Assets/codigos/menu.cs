@@ -201,7 +201,7 @@ public class menu : MonoBehaviour
             i2.sprite = items[0];
             i3.sprite = items[0];
             slot++;
-            MenuManager.main.reset = true;
+            
         }
     }
     public void abInv()
@@ -231,7 +231,7 @@ public class menu : MonoBehaviour
         {
 
 
-            tituloitem.SetText(slots[pos].sprite.name);
+            tituloitem.SetText(slots[pos].sprite.name.Replace("_0", "").Replace("_", " "));
             descitem.SetText(GlobalBuffManager.main.description(slots[pos].sprite));
         }
     }

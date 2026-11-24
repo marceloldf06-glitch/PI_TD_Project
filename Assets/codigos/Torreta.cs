@@ -277,7 +277,10 @@ public class Torreta : MonoBehaviour
             {
                 upgradeTXT.SetText("Upgrade : " + level(lvl + 1).Preco);
             }
-
+            if (lvl >= (Levels.Length - 1))
+            {
+            upgradeTXT.SetText("Max Level");
+            }
             menuAUsar.imagem.sprite = imgperso;
             String desc = "";
             desc += "\n<sprite=0>: " + BalasPorSec;
