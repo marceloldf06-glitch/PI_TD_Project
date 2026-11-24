@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Banjo_0: -4327472869577976879
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

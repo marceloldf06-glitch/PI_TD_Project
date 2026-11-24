@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ocarina_0: 2818102680522037325
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

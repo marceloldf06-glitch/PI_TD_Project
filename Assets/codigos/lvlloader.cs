@@ -14,4 +14,9 @@ public class lvlloader : MonoBehaviour
         if (fase == -1) return;
         SceneManager.LoadScene(fase);
     }
+    public void passa(int f)
+    {
+        if (fase == -1) return;
+        SceneManager.LoadScene(f);
+    }
 }

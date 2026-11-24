@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Colar Planta_0: 3496544432266884639
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
