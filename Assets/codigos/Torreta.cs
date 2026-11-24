@@ -111,11 +111,12 @@ public class Torreta : MonoBehaviour
     void Update()
     {
         atualizarstatus();
-        
-        
+        if (menuAUsar.nome.text.Equals(nome))
+        {
+            attupdstatus();
 
-
-        if (Alvo == null)
+        }
+            if (Alvo == null)
         {
             AcharAlvo();
             return;
