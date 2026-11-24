@@ -60,7 +60,7 @@ public class Torreta : MonoBehaviour
     private Transform Alvo = null;
     private float cooldown;
     private float cooldownB;
-    private int lvl = 0;
+    public int lvl = 0;
     private int moneygasto;
     private Animator Animup;
     private Menus menuAUsar;
@@ -247,7 +247,7 @@ public class Torreta : MonoBehaviour
             {
                 return;
             }
-            manager.main.gastarDinheiro(Mathf.RoundToInt(level(lvl).Preco));
+            manager.main.gastarDinheiro(Mathf.RoundToInt(level(lvl+1).Preco));
             lvl++;
             atualizarstatus();
             attupdstatus();
@@ -257,7 +257,7 @@ public class Torreta : MonoBehaviour
             }
             else
             {
-                upgradeTXT.SetText("Upgrade : " + level(lvl).Preco);
+                upgradeTXT.SetText("Upgrade : " + level(lvl+1).Preco);
             }
         }
     }
@@ -273,15 +273,16 @@ public class Torreta : MonoBehaviour
             status = menuAUsar.statuspanel;
             botaoUpgrade.onClick.AddListener(Upgrade);
             botaovender.onClick.AddListener(vender);
-            if (lvl == 0)
-            {
-                upgradeTXT.SetText("Upgrade : " + level(lvl + 1).Preco);
-            }
-            if (lvl >= (Levels.Length - 1))
-            {
+
+        if (lvl >= (Levels.Length - 1))
+        {
             upgradeTXT.SetText("Max Level");
-            }
-            menuAUsar.imagem.sprite = imgperso;
+        }
+        else
+        {
+            upgradeTXT.SetText("Upgrade : " + level(lvl + 1).Preco);
+        }
+        menuAUsar.imagem.sprite = imgperso;
             String desc = "";
             desc += "\n<sprite=0>: " + BalasPorSec;
             desc += "\n<sprite=7>: " + Dano;

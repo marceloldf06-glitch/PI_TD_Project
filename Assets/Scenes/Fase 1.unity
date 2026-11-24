@@ -2948,6 +2948,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 223893640}
     m_Modifications:
+    - target: {fileID: 1569456461298785681, guid: 8db92de965c5817498dde8d814f8ab51, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7870540150963878642, guid: 0f5472320593fd44493a7903bf4b7b6b, type: 3}
     - target: {fileID: 5128137870555159069, guid: 8db92de965c5817498dde8d814f8ab51, type: 3}
       propertyPath: m_Name
       value: Grama1 (16)
@@ -5842,6 +5846,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 223893640}
     m_Modifications:
+    - target: {fileID: 1569456461298785681, guid: 8db92de965c5817498dde8d814f8ab51, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7870540150963878642, guid: 0f5472320593fd44493a7903bf4b7b6b, type: 3}
     - target: {fileID: 5128137870555159069, guid: 8db92de965c5817498dde8d814f8ab51, type: 3}
       propertyPath: m_Name
       value: Grama1 (7)
@@ -6037,6 +6045,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 223893640}
     m_Modifications:
+    - target: {fileID: 1569456461298785681, guid: 8db92de965c5817498dde8d814f8ab51, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7870540150963878642, guid: 0f5472320593fd44493a7903bf4b7b6b, type: 3}
     - target: {fileID: 5128137870555159069, guid: 8db92de965c5817498dde8d814f8ab51, type: 3}
       propertyPath: m_Name
       value: Grama1 (19)
@@ -6960,6 +6972,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 223893640}
     m_Modifications:
+    - target: {fileID: 1569456461298785681, guid: 8db92de965c5817498dde8d814f8ab51, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7870540150963878642, guid: 0f5472320593fd44493a7903bf4b7b6b, type: 3}
     - target: {fileID: 5128137870555159069, guid: 8db92de965c5817498dde8d814f8ab51, type: 3}
       propertyPath: m_Name
       value: Grama1 (15)
@@ -7337,6 +7353,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 223893640}
     m_Modifications:
+    - target: {fileID: 1569456461298785681, guid: 8db92de965c5817498dde8d814f8ab51, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7870540150963878642, guid: 0f5472320593fd44493a7903bf4b7b6b, type: 3}
     - target: {fileID: 5128137870555159069, guid: 8db92de965c5817498dde8d814f8ab51, type: 3}
       propertyPath: m_Name
       value: Grama1 (8)
@@ -7651,6 +7671,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 223893640}
     m_Modifications:
+    - target: {fileID: 1569456461298785681, guid: 8db92de965c5817498dde8d814f8ab51, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7870540150963878642, guid: 0f5472320593fd44493a7903bf4b7b6b, type: 3}
     - target: {fileID: 5128137870555159069, guid: 8db92de965c5817498dde8d814f8ab51, type: 3}
       propertyPath: m_Name
       value: Grama1 (20)
