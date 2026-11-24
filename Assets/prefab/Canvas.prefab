@@ -871,7 +871,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6606274835670704170}
         m_TargetAssemblyTypeName: menu, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: comprabau
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6496,7 +6496,7 @@ MonoBehaviour:
   i3: {fileID: 5796140866413133146}
   botaochest: {fileID: 9166793864966519178}
   valorBau: {fileID: 2315983105383338563}
-  valorinibau: 0
+  valorinibau: 750
   Inventory: {fileID: 5150540957934902665}
   slots:
   - {fileID: 3061378511450602875}
@@ -8292,7 +8292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8801815661500885057
 RectTransform:
   m_ObjectHideFlags: 0

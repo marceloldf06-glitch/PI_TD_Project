@@ -224,6 +224,94 @@ MonoBehaviour:
     knockback: 0
     dotDMG: 0
     dotDur: 0
+  - spriteitem: {fileID: 4935404721241821605, guid: 1d729df15dbe72041986794f6691f4b3, type: 3}
+    velAttk: 0
+    Dano: 7
+    Range: 0
+    critChance: 0
+    critDMG: 0
+    pierce: 0
+    slow: 0
+    knockback: 0
+    dotDMG: 6
+    dotDur: 0
+  - spriteitem: {fileID: 5561527620949110197, guid: e9deac4d086b4c847b62bcf82bfb0457, type: 3}
+    velAttk: 4
+    Dano: 0
+    Range: 0
+    critChance: 0
+    critDMG: 0
+    pierce: 0
+    slow: 0
+    knockback: 0
+    dotDMG: 0
+    dotDur: 5
+  - spriteitem: {fileID: -7468185602417514453, guid: 10438924614797642a925bdf65b5a6bc, type: 3}
+    velAttk: 0
+    Dano: 6
+    Range: 2
+    critChance: 0
+    critDMG: 0
+    pierce: 0
+    slow: 0
+    knockback: 2
+    dotDMG: 0
+    dotDur: 0
+  - spriteitem: {fileID: 2045492094208909694, guid: 85b7d074493d7fb41a51b9b94acb12c8, type: 3}
+    velAttk: 1
+    Dano: 0
+    Range: 1
+    critChance: 5
+    critDMG: 0
+    pierce: 0
+    slow: 0
+    knockback: 0
+    dotDMG: 0
+    dotDur: 2
+  - spriteitem: {fileID: -7895814171683754983, guid: d9e130d0c5799b5418cb9fd043ddf1cb, type: 3}
+    velAttk: 1
+    Dano: 0
+    Range: 1
+    critChance: 5
+    critDMG: 0
+    pierce: 0
+    slow: 0
+    knockback: 0
+    dotDMG: 0
+    dotDur: 2
+  - spriteitem: {fileID: -6455543556900184300, guid: a15ef7978d15aa140a28fa6df30252a2, type: 3}
+    velAttk: 1
+    Dano: 0
+    Range: 1
+    critChance: 5
+    critDMG: 0
+    pierce: 0
+    slow: 0
+    knockback: 0
+    dotDMG: 0
+    dotDur: 2
+  - spriteitem: {fileID: 1448408121852258584, guid: 21d5965d177b70c40aa15159817e9b16, type: 3}
+    velAttk: 1
+    Dano: 0
+    Range: 1
+    critChance: 5
+    critDMG: 0
+    pierce: 0
+    slow: 0
+    knockback: 0
+    dotDMG: 0
+    dotDur: 2
+  - spriteitem: {fileID: 6401116415258047223, guid: a1167e9ac04a3ff479897ce3ece93cab, type: 3}
+    velAttk: 1
+    Dano: 0
+    Range: 1
+    critChance: 5
+    critDMG: 0
+    pierce: 0
+    slow: 0
+    knockback: 0
+    dotDMG: 0
+    dotDur: 2
 --- !u!114 &6307457599859882668
 MonoBehaviour:
   m_ObjectHideFlags: 0
